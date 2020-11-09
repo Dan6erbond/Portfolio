@@ -1,35 +1,44 @@
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import React from "react";
+import { Navbar } from "react-bootstrap";
+import "./header.scss";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+const Header = ({ siteTitle }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "logo - green.png" }) {
+        childImageSharp {
+          fixed(width: 30, height: 30) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
+
+  return (
+    <Navbar bg="white">
+      <Link to="/">
+        <Navbar.Brand>
+          {data?.placeholderImage?.childImageSharp?.fixed ? (
+            <Img
+              alt="logo"
+              fixed={data.placeholderImage.childImageSharp.fixed}
+              className="d-inline-block align-top"
+            />
+          ) : (
+            <div>Picture not found</div>
+          )}{" "}
           {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-);
+        </Navbar.Brand>
+      </Link>
+      <Navbar.Toggle />
+      <Navbar.Collapse className="justify-content-end" />
+    </Navbar>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
