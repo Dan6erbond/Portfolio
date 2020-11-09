@@ -1,7 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import Banner from "../components/banner";
-import Layout from "../components/layout";
 import About from "../components/pages/home/about";
 import ScrollDown from "../components/scroll-down";
 import SEO from "../components/seo";
@@ -22,7 +21,7 @@ const IndexPage = () => {
   `);
 
   return (
-    <Layout>
+    <>
       <SEO title="Home" />
       <Banner image={data?.placeholderImage?.childImageSharp?.fluid}>
         <React.Fragment>
@@ -47,7 +46,7 @@ const IndexPage = () => {
           Projects
         </a>
       </div>
-    </Layout>
+    </>
   );
 };
 
