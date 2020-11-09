@@ -40,7 +40,7 @@ const IndexPage = () => {
           <ScrollDown targetRef={aboutRef} label="About Me" />
         </React.Fragment>
       </Banner>
-      <About />
+      <About aboutRef={aboutRef} />
       <br />
       <div className="text-center">
         <a className="btn btn-outline-primary flat-button" href="/projects">
