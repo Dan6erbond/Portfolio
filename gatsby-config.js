@@ -21,10 +21,13 @@ module.exports = {
       options: {
         name: `RaviAnand Mohabir | Portfolio`,
         short_name: `Developer Portfolio`,
+        description: `Full-stack engineer working on his own start-up and learning countless Javascript libraries in his free-time.`,
+        lang: `en`,
         start_url: `/`,
         background_color: `#444444`,
         theme_color: `#409982`,
         display: `minimal-ui`,
+        icon: `src/images/favicon.ico`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
