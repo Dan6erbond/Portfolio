@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import VizSensor from "react-visibility-sensor";
-import "./About.scss";
+import "./about.scss";
 import SkillBar from "./skill-bar";
 
 const About = ({ aboutRef }) => {
@@ -66,7 +66,10 @@ const About = ({ aboutRef }) => {
                     React front-end applications.
                   </p>
                   <br />
-                  <Link className="btn btn-outline-primary flat-button" to="/about">
+                  <Link
+                    className="btn btn-outline-primary flat-button"
+                    to="/about"
+                  >
                     Read More
                   </Link>
                 </div>
