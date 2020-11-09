@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 import Banner from "../components/banner";
 import Layout from "../components/layout";
