@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
@@ -17,6 +18,20 @@ const About = ({ aboutRef }) => {
       setIsVisible(true);
     }
   }, [visible]);
+
+  const { profileImg } = useStaticQuery(
+    graphql`
+      query ProfileImgQuery {
+        profileImg: file(relativePath: { eq: "ravi_2_1_cropped_1.png" }) {
+          childImageSharp {
+            fluid(maxWidth: 200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `,
+  );
 
   const skills = [
     { skillName: "Java", skillStrength: 9 },
@@ -54,7 +69,10 @@ const About = ({ aboutRef }) => {
               className="center-container"
             >
               <div className="content about">
-                <div className="profile-img" />
+                <Img
+                  className="profile-img"
+                  fluid={profileImg?.childImageSharp.fluid}
+                />
                 <p style={{ margin: 0 }}>
                   I enjoy creating front-end and back-end applications for
                   mobile and desktop devices alike. My goal is to create
