@@ -1,1 +1,31 @@
-$color-primary: #409982;
+$font-family-sans-serif: "Quicksand", sans-serif;
+$font-family-serif: "Lora", serif;
+$font-family-monospace: "Anonymous Pro", monospace;
+
+$turquoise: rgb(64, 153, 130);
+$color-primary: $turquoise;
+
+$dark-turquoise: rgb(70, 109, 99);
+$dark-turquoise-pressed: rgb(65, 94, 86);
+
+$dark-blue: rgb(56, 63, 86);
+$color-secondary: $turquoise;
+
+$dark-blue-pressed: rgb(51, 56, 71);
+
+$light-grey: rgb(176, 176, 176);
+$shadow-grey: rgb(230, 230, 230);
+$dark-grey: rgb(68, 68, 68);
+$dark-grey-pressed: rgb(44, 45, 48);
+
+$material-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+$material-shadow-light: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+
+$banhammer-purple: rgb(205, 206, 255);
+$substarters-yellow: rgb(252, 175, 23);
+$substarters-blue: rgb(0, 17, 60);
+
+$theme-colors: (
+  "primary": $turquoise,
+  "secondary": $dark-blue,
+);
