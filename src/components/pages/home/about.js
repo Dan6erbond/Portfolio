@@ -9,8 +9,7 @@ import "./about.scss";
 import SkillBar from "./skillBar";
 
 const About = ({ aboutRef }) => {
-  const ref = React.useRef();
-  const visible = useIsVisible({ element: ref });
+  const visible = useIsVisible({ element: aboutRef });
   const [isVisible, setIsVisible] = React.useState(false);
 
   React.useEffect(() => {
@@ -49,7 +48,7 @@ const About = ({ aboutRef }) => {
     <motion.div
       initial={false}
       animate={isVisible ? "visible" : "hidden"}
-      ref={ref}
+      ref={aboutRef}
     >
       <Container fluid="md" ref={aboutRef}>
         <Row>
