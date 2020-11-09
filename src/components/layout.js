@@ -5,15 +5,13 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
+import { graphql, StaticQuery } from "gatsby";
 import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-
-import { Container, Row, Col } from "react-bootstrap";
-
+import Footer from "./footer";
 import Header from "./header";
-import Navbar from "./navBar";
+import Navigation from "./navigation";
 
-const Layout = ({ children, pageInfo }) => (
+const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -26,34 +24,11 @@ const Layout = ({ children, pageInfo }) => (
     `}
     render={data => (
       <>
-        <Container fluid className="px-0 main">
-          <Row noGutters className="justify-content-center">
-            <Col>
-              <Header siteTitle={data.site.siteMetadata.title} />
-            </Col>
-          </Row>
-          <Navbar pageInfo={pageInfo} />
-          <Row noGutters>
-            <Col>
-              <Container className="mt-5">
-                <main>{children}</main>
-              </Container>
-            </Col>
-          </Row>
-        </Container>
-        <Container fluid className="px-0">
-          <Row noGutters>
-            <Col className="footer-col">
-              <footer>
-                <span>
-                  © {new Date().getFullYear()}, Built with
-                  {` `}
-                  <a href="https://www.gatsbyjs.org">Gatsby</a>
-                </span>
-              </footer>
-            </Col>
-          </Row>
-        </Container>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <Navigation siteTitle={data.site.siteMetadata.title} />
+        <main style={{ minHeight: "100vh" }}>{children}</main>
+        <br />
+        <Footer />
       </>
     )}
   />
