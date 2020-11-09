@@ -10,7 +10,6 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -24,7 +23,6 @@ module.exports = {
         background_color: `#444444`,
         theme_color: `#409982`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.ico`, // This path is relative to the root of the site.
       },
     },
     `gatsby-plugin-sass`,

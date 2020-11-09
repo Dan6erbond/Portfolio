@@ -1,46 +1,44 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "dan6erbond-portfolio",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "RaviAnand Mohabir's web portfolio, built with Gatsby.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "RaviAnand Mohabir <moravrav@gmail.com>",
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.12",
-    "bootstrap": "^4.5.3",
-    "gatsby": "^2.25.3",
-    "gatsby-image": "^2.4.21",
-    "gatsby-plugin-manifest": "^2.5.2",
-    "gatsby-plugin-offline": "^3.3.2",
-    "gatsby-plugin-react-helmet": "^3.3.14",
-    "gatsby-plugin-sass": "^2.4.2",
-    "gatsby-plugin-sharp": "^2.7.1",
-    "gatsby-source-filesystem": "^2.4.1",
-    "gatsby-transformer-sharp": "^2.5.21",
-    "node-sass": "4.14.1",
+    "bootstrap": "^4.3.1",
+    "gatsby": "^2.3.34",
+    "gatsby-image": "^2.0.41",
+    "gatsby-plugin-manifest": "^2.0.29",
+    "gatsby-plugin-offline": "^2.0.25",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.0.35",
+    "gatsby-source-filesystem": "^2.0.33",
+    "gatsby-transformer-sharp": "^2.1.18",
+    "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-bootstrap": "^1.4.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^6.1.0"
+    "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.0",
+    "react-icons": "^3.6.1"
   },
   "devDependencies": {
-    "prettier": "2.1.2"
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.17.0"
   },
   "keywords": [
     "gatsby"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "develop": "gatsby develop -H 0.0.0.0 -p 8000",
+    "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -48,5 +46,6 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+  },
+  "homepage": "https://billyjacoby.github.io/gatsby-react-bootstrap-starter/"
 }

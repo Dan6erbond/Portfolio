@@ -1,51 +1,41 @@
-import { graphql, Link, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
+import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
-import { Navbar } from "react-bootstrap";
-import "./header.scss";
 
-const Header = ({ siteTitle }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "logo - green.png" }) {
-        childImageSharp {
-          fixed(width: 30, height: 30) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `);
-
-  return (
-    <Navbar bg="white">
-      <Link to="/">
-        <Navbar.Brand>
-          {data?.placeholderImage?.childImageSharp?.fixed ? (
-            <Img
-              alt="logo"
-              fixed={data.placeholderImage.childImageSharp.fixed}
-              className="d-inline-block align-top"
-            />
-          ) : (
-            <div>Picture not found</div>
-          )}{" "}
+const Header = ({ siteTitle }) => (
+  <header
+    style={{
+      background: `#20232a`
+    }}
+  >
+    <div
+      style={{
+        margin: `0 auto`,
+        maxWidth: 960,
+        padding: `1.45rem 1.0875rem`
+      }}
+    >
+      <h1 style={{ margin: 0 }}>
+        <Link
+          to="/"
+          style={{
+            color: `white`,
+            textDecoration: `none`
+          }}
+        >
           {siteTitle}
-        </Navbar.Brand>
-      </Link>
-      <Navbar.Toggle />
-      <Navbar.Collapse className="justify-content-end" />
-    </Navbar>
-  );
-};
+        </Link>
+      </h1>
+    </div>
+  </header>
+);
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  siteTitle: PropTypes.string
 };
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: ``
 };
 
 export default Header;
