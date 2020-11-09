@@ -1,38 +1,35 @@
-div.main {
-  min-height: 100vh;
-  padding-bottom: 60px;
+html {
+  scroll-behavior: smooth;
 }
 
-div.full-height {
-  min-height: 100vh;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-a.link-no-style {
-  &:hover {
-    text-decoration: none;
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $turquoise;
 }
 
-.footer-col {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  footer {
-    display: flex;
-    position: relative;
-    bottom: 0;
-    margin-top: -60px;
-    height: 60px;
-    clear: both;
-    background-color: $color-primary;
-    color: white;
-    justify-content: center;
-    width: 100%;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $dark-turquoise;
+}
 
-    span {
-      align-self: center;
-      text-align: center;
-    }
-  }
+code {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2.5px;
+}
+
+::selection {
+  color: white;
+  background: $turquoise;
+}
+
+ul {
+  list-style-type: disc;
+  margin: 1em 0 1em;
+  padding-left: 40px;
 }

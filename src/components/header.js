@@ -1,41 +1,30 @@
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
+import { Navbar } from "react-bootstrap";
+import NavLogo from "./navLogo";
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `#20232a`
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+  <React.Fragment>
+    <Navbar bg="white">
+      <Link to="/">
+        <Navbar.Brand>
+          <NavLogo /> {siteTitle}
+        </Navbar.Brand>
+      </Link>
+      <Navbar.Toggle />
+      <Navbar.Collapse className="justify-content-end" />
+    </Navbar>
+    <br />
+  </React.Fragment>
 );
 
 Header.propTypes = {
-  siteTitle: PropTypes.string
+  siteTitle: PropTypes.string,
 };
 
 Header.defaultProps = {
-  siteTitle: ``
+  siteTitle: ``,
 };
 
 export default Header;
