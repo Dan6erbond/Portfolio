@@ -5,7 +5,7 @@ import { FaArrowAltCircleDown } from "react-icons/fa";
 import "./scrollDown.scss";
 
 const ScrollDown = ({ targetRef, label }) => {
-  const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop);
+  const scrollToRef = ref => window.scrollTo(0, ref.current.offsetTop - 80);
 
   return (
     <div className="scroll-down">
