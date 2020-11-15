@@ -1,8 +1,12 @@
 .navbar {
-  -webkit-box-shadow: 0 8px 6px 0 $shadow-grey;
-  -moz-box-shadow: 0 8px 6px 0 $shadow-grey;
-  box-shadow: 0 8px 6px 0 $shadow-grey;
   padding: 1rem 1rem !important;
+  transition: box-shadow ease-in-out 0.3s;
+
+  &.shadow {
+    -webkit-box-shadow: 0 8px 6px 0 $shadow-grey;
+    -moz-box-shadow: 0 8px 6px 0 $shadow-grey;
+    box-shadow: 0 8px 6px 0 $shadow-grey;
+  }
 
   .navbar-brand {
     color: $turquoise !important;
