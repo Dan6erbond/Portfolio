@@ -4,12 +4,12 @@ import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { useIsVisible } from "../../../utils/useIsVisible";
+import { useInView } from "react-intersection-observer";
 import "./about.scss";
 import SkillBar from "./skillBar";
 
 const About = ({ aboutRef }) => {
-  const visible = useIsVisible({ element: aboutRef });
+  const [inViewRef, visible] = useInView();
   const [isVisible, setIsVisible] = React.useState(false);
 
   React.useEffect(() => {
@@ -17,6 +17,14 @@ const About = ({ aboutRef }) => {
       setIsVisible(true);
     }
   }, [visible]);
+
+  const setRefs = React.useCallback(
+    node => {
+      aboutRef.current = node;
+      inViewRef(node);
+    },
+    [inViewRef],
+  );
 
   const { profileImg } = useStaticQuery(
     graphql`
@@ -48,7 +56,7 @@ const About = ({ aboutRef }) => {
     <motion.div
       initial={false}
       animate={isVisible ? "visible" : "hidden"}
-      ref={aboutRef}
+      ref={setRefs}
     >
       <Container fluid="md" ref={aboutRef}>
         <Row>
