@@ -1,11 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { useIsVisible } from "../../../utils/useIsVisible";
+import { useInView } from "react-intersection-observer";
 import "./skillBar.scss";
 
 const SkillBar = ({ skillName, skillStrength }) => {
-  const ref = React.useRef();
-  const visible = useIsVisible({ element: ref });
+  const [ref, visible] = useInView();
 
   React.useEffect(() => {
     if (visible && barWidth === 0) {
