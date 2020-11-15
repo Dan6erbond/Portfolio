@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `RaviAnand Mohabir | Portfolio`,
-    description: `Full-stack engineer working on his own start-up and learning countless Javascript libraries in his free-time.`,
+    title: `RaviAnand Mohabir`,
+    description: `Full-stack engineer working on the Jenyus IT start-up and learning countless Javascript libraries in his free-time.`,
     author: `RaviAnand Mohabir`,
   },
   plugins: [
@@ -19,9 +19,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `RaviAnand Mohabir | Portfolio`,
-        short_name: `Developer Portfolio`,
-        description: `Full-stack engineer working on his own start-up and learning countless Javascript libraries in his free-time.`,
+        name: `RaviAnand Mohabir`,
+        short_name: `Portfolio`,
+        description: `Full-stack engineer working on the Jenyus IT start-up and learning countless Javascript libraries in his free-time.`,
         lang: `en`,
         start_url: `/`,
         background_color: `#444444`,
