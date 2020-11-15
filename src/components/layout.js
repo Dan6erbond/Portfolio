@@ -26,7 +26,9 @@ const Layout = ({ children }) => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Navigation siteTitle={data.site.siteMetadata.title} />
-        <main style={{ minHeight: "100vh" }}>{children}</main>
+        <main style={{ minHeight: "100vh", paddingTop: "80px" }}>
+          {children}
+        </main>
         <br />
         <Footer />
       </>
