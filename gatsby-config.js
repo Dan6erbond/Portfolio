@@ -1,3 +1,7 @@
+require("dotenv").config();
+
+const { graphQLQuery, variables } = require("./github-api");
+
 module.exports = {
   siteMetadata: {
     title: `RaviAnand Mohabir`,
@@ -37,6 +41,14 @@ module.exports = {
       options: {
         name: "projects",
         path: `${__dirname}/content/projects/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        graphQLQuery,
+        variables,
+        token: process.env.GITHUB_API_TOKEN,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
