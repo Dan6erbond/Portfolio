@@ -6,13 +6,6 @@ import SEO from "../components/seo";
 const RepositoryPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "code.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       allGithubData {
         edges {
           node {
