@@ -23,4 +23,3 @@ jobs:
           projectId: ravi-180905
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
-          GITHUB_API_TOKEN: ${{ secrets.GH_API_TOKEN }}
