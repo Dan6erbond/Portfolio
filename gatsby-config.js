@@ -14,7 +14,6 @@ module.exports = {
     "gatsby-plugin-sass",
     "gatsby-plugin-sharp",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-offline",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -30,6 +29,7 @@ module.exports = {
         icon: "src/images/logo_navy.svg",
       },
     },
+    "gatsby-plugin-offline",
     "gatsby-plugin-mdx",
     "gatsby-transformer-sharp",
     {
