@@ -20,11 +20,11 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "npm run build:tailwind && gatsby build",
+    "build": "cross-env NODE_ENV=production npm run build:tailwind && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lint": "eslint --fix",
-    "build:tailwind": "tailwind build src/styles/tailwind.css -o static/styles/tailwind.css"
+    "build:tailwind": "cross-env NODE_ENV=production tailwind build src/styles/tailwind.css -o static/styles/tailwind.css"
   },
   "dependencies": {
     "@fontsource/exo": "^4.1.0",
@@ -58,6 +58,7 @@
     "sass": "^1.32.5"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
