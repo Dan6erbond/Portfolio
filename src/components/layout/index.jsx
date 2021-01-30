@@ -1,13 +1,17 @@
-import clsx from "clsx";
-import React from "react";
 import "@fontsource/exo";
 import "@fontsource/oxygen";
-import Logo from "../../assets/logo_orange_gradient.inline.svg";
+import clsx from "clsx";
 import { Link } from "gatsby";
+import React from "react";
+import { Helmet } from "react-helmet";
+import Logo from "../../assets/logo_orange_gradient.inline.svg";
 
 const Layout = ({ children }) => {
   return (
     <React.Fragment>
+      <Helmet>
+        <body className={clsx("dark:text-white", "dark:bg-navy-800")} />
+      </Helmet>
       <nav className={clsx("fixed", "bottom-0", "md:top-0", "w-screen")}>
         <div
           className={clsx(
