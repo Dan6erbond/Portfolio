@@ -16,6 +16,7 @@ const Layout = ({ children, className }) => {
         className={clsx(
           "fixed",
           "bottom-0",
+          "md:bottom-auto",
           "md:top-0",
           "w-screen",
           "dark:bg-navy-800",
