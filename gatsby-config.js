@@ -1,8 +1,13 @@
 require("dotenv").config();
 
+const { graphQLQuery, variables } = require("./github-api");
+
 module.exports = {
   siteMetadata: {
-    title: "Portfolio",
+    title: "RaviAnand Mohabir",
+    description:
+      "Full-stack engineer working on the Jenyus IT start-up and Recog forum.",
+    author: "RaviAnand Mohabir",
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -48,6 +53,14 @@ module.exports = {
           appId: "1:276164819903:web:86d609df09653e6650bf0a",
           measurementId: "G-2G5ETB38GK",
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        graphQLQuery,
+        variables,
+        token: process.env.GITHUB_API_TOKEN,
       },
     },
   ],
