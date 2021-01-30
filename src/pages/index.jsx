@@ -41,7 +41,8 @@ const IndexPage = () => {
             <div className={clsx("z-10", "mb-8", "md:mb-4")}>
               <h1
                 className={clsx(
-                  "text-6xl",
+                  "text-4xl",
+                  "md:text-6xl",
                   "font-bold",
                   "font-title",
                   "bg-clip-text",

@@ -1,5 +1,7 @@
-import * as React from "react";
+import clsx from "clsx";
 import { Link } from "gatsby";
+import * as React from "react";
+import Layout from "../components/layout";
 
 // styles
 const pageStyles = {
@@ -27,7 +29,7 @@ const codeStyles = {
 // markup
 const NotFoundPage = () => {
   return (
-    <main style={pageStyles}>
+    <Layout className={clsx("p-4")}>
       <title>Not found</title>
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>
@@ -45,9 +47,12 @@ const NotFoundPage = () => {
           </>
         ) : null}
         <br />
-        <Link to="/">Go home</Link>.
+        <Link to="/" className={clsx("underline")}>
+          Go home
+        </Link>
+        .
       </p>
-    </main>
+    </Layout>
   );
 };
 

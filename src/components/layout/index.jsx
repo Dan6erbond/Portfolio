@@ -6,13 +6,21 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import Logo from "../../assets/logo_orange_gradient.inline.svg";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, className }) => {
   return (
     <React.Fragment>
       <Helmet>
         <body className={clsx("dark:text-white", "dark:bg-navy-800")} />
       </Helmet>
-      <nav className={clsx("fixed", "bottom-0", "md:top-0", "w-screen")}>
+      <nav
+        className={clsx(
+          "fixed",
+          "bottom-0",
+          "md:top-0",
+          "w-screen",
+          "dark:bg-navy-800",
+          "z-50",
+        )}>
         <div
           className={clsx(
             "py-2",
@@ -62,7 +70,15 @@ const Layout = ({ children }) => {
           </Link>
         </div>
       </nav>
-      <main className={clsx("min-h-full", "pb-20", "md:pb-0", "md:pt-20")}>
+      <main
+        className={clsx(
+          "min-h-full",
+          "pb-20",
+          "md:pb-10",
+          "pt-10",
+          "md:pt-20",
+          className,
+        )}>
         {children}
       </main>
     </React.Fragment>
