@@ -1,58 +1,36 @@
-require("dotenv").config();
-
-const { graphQLQuery, variables } = require("./github-api");
-
 module.exports = {
   siteMetadata: {
-    title: `RaviAnand Mohabir`,
-    description: `Full-stack engineer working on the Jenyus IT start-up and learning countless Javascript libraries in his free-time.`,
-    author: `RaviAnand Mohabir`,
+    title: "Portfolio",
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-offline",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-manifest",
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        icon: "src/images/icon.png",
       },
     },
-    `gatsby-plugin-sass`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `RaviAnand Mohabir`,
-        short_name: `Portfolio`,
-        description: `Full-stack engineer working on the Jenyus IT start-up and learning countless Javascript libraries in his free-time.`,
-        lang: `en`,
-        start_url: `/`,
-        background_color: `#444444`,
-        theme_color: `#409982`,
-        display: `minimal-ui`,
-        icon: `src/images/favicon.ico`,
-      },
-    },
-    "gatsby-plugin-react-svg",
     "gatsby-plugin-mdx",
+    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "projects",
-        path: `${__dirname}/content/projects/`,
+        name: "images",
+        path: "./src/images/",
       },
+      __key: "images",
     },
     {
-      resolve: `gatsby-source-github-api`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        graphQLQuery,
-        variables,
-        token: process.env.GITHUB_API_TOKEN,
+        name: "pages",
+        path: "./src/pages/",
       },
+      __key: "pages",
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
