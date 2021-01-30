@@ -20,10 +20,11 @@
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
+    "build": "npm run build:tailwind && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint": "eslint --fix"
+    "lint": "eslint --fix",
+    "build:tailwind": "tailwind build src/styles/tailwind.css -o static/styles/tailwind.css"
   },
   "dependencies": {
     "@fontsource/exo": "^4.1.0",
