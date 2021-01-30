@@ -19,6 +19,15 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
+        name: "RaviAnand Mohabir",
+        short_name: "Portfolio",
+        description:
+          "Full-stack engineer working on the Jenyus IT start-up and Recog forum.",
+        lang: "en",
+        start_url: "/",
+        background_color: "#1F2937",
+        theme_color: "#D97706",
+        display: "minimal-ui",
         icon: "src/images/logo_orange.svg",
       },
     },
@@ -61,6 +70,14 @@ module.exports = {
         graphQLQuery,
         variables,
         token: process.env.GITHUB_API_TOKEN,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        },
       },
     },
   ],
