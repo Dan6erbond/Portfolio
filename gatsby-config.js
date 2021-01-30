@@ -28,7 +28,7 @@ module.exports = {
         background_color: "#1F2937",
         theme_color: "#D97706",
         display: "minimal-ui",
-        icon: "src/images/logo_orange.svg",
+        icon: "src/images/logo_navy.svg",
       },
     },
     "gatsby-plugin-mdx",
