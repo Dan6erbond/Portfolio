@@ -9,7 +9,7 @@ const spring = {
 };
 
 const Fab = ({ className, children }) => {
-  const [bottom, setBottom] = React.useState(0);
+  const [bottom, setBottom] = React.useState(140);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -27,14 +27,14 @@ const Fab = ({ className, children }) => {
   return (
     <motion.div
       initial={{ y: 0 }}
-      animate={{ y: Math.min(-140 + bottom, 0) }}
+      animate={{ y: Math.min(bottom - 140, 0) }}
       className={clsx(
         "h-16",
         "w-16",
         "rounded-full",
         "fixed",
         "bottom-24",
-        "md:bottom-6",
+        "md:bottom-8",
         "right-4",
         "bg-gradient-to-br",
         "from-red-500",
