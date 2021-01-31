@@ -7,9 +7,9 @@ import { BsArrowRightShort, BsCheckCircle } from "react-icons/bs";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Waves from "../../../assets/waves.inline.svg";
 
-const Jumbotron = ({ profileImg }) => {
+const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
   return (
-    <div className={clsx("flex", "items-center", "min-h-screen")}>
+    <div className={clsx("flex", "items-center", "min-h-screen")} ref={ref}>
       <div className={clsx("relative", "w-full")}>
         <div
           className={clsx(
@@ -52,7 +52,7 @@ const Jumbotron = ({ profileImg }) => {
                 I am a software engineer based in Switzerland, with experience
                 in frontend frameworks and backend development.
               </p>
-              <Link to="/about" className={clsx("float-right")}>
+              <Link to="#about" className={clsx("float-right")}>
                 Read More{" "}
                 <BsArrowRightShort
                   className={clsx("inline", "animate-bounce-x")}
@@ -203,6 +203,6 @@ const Jumbotron = ({ profileImg }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Jumbotron;
