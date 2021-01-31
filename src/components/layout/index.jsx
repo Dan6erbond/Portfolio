@@ -3,10 +3,24 @@ import "@fontsource/oxygen";
 import clsx from "clsx";
 import { Link } from "gatsby";
 import React from "react";
-import { Helmet } from "react-helmet";
 import Logo from "../../assets/logo_orange_gradient.inline.svg";
 
 const Layout = ({ children, className }) => {
+  const paths = [
+    {
+      path: "/projects",
+      title: "Projects",
+    },
+    {
+      path: "/cv",
+      title: "Resume",
+    },
+    {
+      path: "/contact",
+      title: "Contact",
+    },
+  ];
+
   return (
     <React.Fragment>
       <nav
@@ -28,49 +42,31 @@ const Layout = ({ children, className }) => {
             "max-w-screen-2xl",
             "flex",
             "items-center",
+            "uppercase",
           )}>
           <Link to="/">
             <Logo className={clsx("h-8", "w-auto", "inline", "mr-2")} />
           </Link>
           <div className={clsx("mx-auto")}></div>
-          <Link
-            to="/about"
-            className={clsx(
-              "text-gray-400",
-              "mr-8",
-              "hover:text-orange-400",
-              "transition-colors",
-            )}
-            activeClassName={clsx("text-orange-500")}>
-            About
-          </Link>
-          <Link
-            to="/projects"
-            className={clsx(
-              "text-gray-400",
-              "mr-8",
-              "hover:text-orange-400",
-              "transition-colors",
-            )}
-            activeClassName={clsx("text-orange-500")}>
-            Projects
-          </Link>
-          <Link
-            to="/cv"
-            className={clsx(
-              "text-gray-400",
-              "mr-8",
-              "hover:text-orange-400",
-              "transition-colors",
-            )}
-            activeClassName={clsx("text-orange-500")}>
-            Resume
-          </Link>
+          {paths.map(({ title, path }) => (
+            <Link
+              key={path}
+              to={path}
+              className={clsx(
+                "text-gray-400",
+                "mr-8",
+                "hover:text-orange-400",
+                "transition-colors",
+              )}
+              gatsbyLinkProps={{ activeClassName: clsx("text-orange-500") }}>
+              {title}
+            </Link>
+          ))}
         </div>
       </nav>
       <main
         className={clsx(
-          "min-h-full",
+          "min-h-screen",
           "pb-20",
           "md:pb-10",
           "pt-10",
@@ -79,6 +75,9 @@ const Layout = ({ children, className }) => {
         )}>
         {children}
       </main>
+      <footer className={clsx("mt-4", "py-8", "px-6", "bg-navy-600")}>
+        Footer.
+      </footer>
     </React.Fragment>
   );
 };
