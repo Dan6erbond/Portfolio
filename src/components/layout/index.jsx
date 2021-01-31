@@ -58,7 +58,7 @@ const Layout = ({ children, className }) => {
                 "hover:text-orange-400",
                 "transition-colors",
               )}
-              gatsbyLinkProps={{ activeClassName: clsx("text-orange-500") }}>
+              activeClassName={clsx("text-orange-500")}>
               {title}
             </Link>
           ))}
