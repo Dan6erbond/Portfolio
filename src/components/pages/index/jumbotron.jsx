@@ -44,7 +44,7 @@ const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
                 "inline-block",
                 "p-6",
                 "rounded",
-                "shadow-lg",
+                "shadow-xl",
                 "max-w-7xl",
                 "bg-navy-700",
               )}>
@@ -52,8 +52,8 @@ const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
                 I am a software engineer based in Switzerland, with experience
                 in frontend frameworks and backend development.
               </p>
-              <Link to="#about" className={clsx("float-right")}>
-                Read More{" "}
+              <Link to="/contact" className={clsx("float-right")}>
+                Contact Me{" "}
                 <BsArrowRightShort
                   className={clsx("inline", "animate-bounce-x")}
                 />

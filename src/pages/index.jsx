@@ -1,12 +1,16 @@
 import clsx from "clsx";
 import { graphql, useStaticQuery } from "gatsby";
 import * as React from "react";
+import { BiLinkExternal } from "react-icons/bi";
 import { useInView } from "react-intersection-observer";
+import IndicatorNav from "../components/indicator-nav";
 import Layout from "../components/layout";
 import Jumbotron from "../components/pages/index/jumbotron";
-import IndicatorNav from "../components/indicator-nav";
 import Technology from "../components/pages/index/technology";
 import SEO from "../components/seo";
+import JenyusLogo from "../images/jenyus_logo.svg";
+import AlteKantiAarauLogo from "../images/alte_kanti_aarau_logo.svg";
+import RecogLogo from "../images/recog_logo.svg";
 
 const IndexPage = () => {
   const {
@@ -181,7 +185,7 @@ const IndexPage = () => {
           "min-h-screen",
         )}
         ref={aboutRef}>
-        <div className={clsx("flex")}>
+        <div className={clsx("flex", "flex-col", "md:flex-row")}>
           <div className={clsx("flex-1")}>
             <h2 className={clsx("text-3xl", "mb-2")}>About Me</h2>
             <div className={clsx("mb-6", "font-bold", "text-gray-400")}>
@@ -194,22 +198,181 @@ const IndexPage = () => {
                 years
               </span>
               <span className={clsx("mx-4")}>/</span>
+              <span className={clsx("text-navy-300")}>Associate's Degree</span>
             </div>
             <p>
-              Motivated, engaged full stack web developer with a passion for
-              software architecture and design. Always looking for new projects
-              and currently working on the Jenyus IT start-up and its primary
-              project{" "}
+              My name is RaviAnand Mohabir. I'm a fullstack developer &
+              freelancer in Switzerland. I'm passionate about technology and
+              media and pretty much anything that runs this digital world.
+              <br />
+              <br />I am currently a fullstack junior developer at BlueMouse
+              GmbH and the founder of Jenyus Org, working on{" "}
               <a
                 className={clsx("underline", "text-navy-200")}
                 target="_blank"
                 href="https://github.com/Jenyus-Org">
                 Recog
               </a>
-              .
+              . I also maintain a couple of open-source projects and am always
+              learning new technologies & frameworks.
+              <br />
+              <br />
+              For fullstack development I focus on technologies that create the
+              best experience for the users and the developer. I started using
+              React & Vue in the frontend to build out many of my projects, and
+              primarily use NodeJS in the backend. This stack allows me to build
+              rich user experiences rapidly and make projects maintainable. This
+              site is built on top of the Gatsby framework using React &
+              Javascript.
+              <br />
+              <br />
+              I'm always looking for new projects to work on - if you're a small
+              business owner looking for a landing page, internal management
+              tool or the sorts, or just want to get in touch, feel free to
+              reach out and let's chat.
             </p>
           </div>
-          <div className={clsx("flex-1")}></div>
+          <div className={clsx("flex-1")}>
+            <div
+              className={clsx(
+                "h-full",
+                "grid",
+                "grid-cols-1",
+                "md:grid-cols-2",
+                "gap-8",
+                "py-8",
+                "px-16",
+              )}>
+              <div
+                className={clsx(
+                  "shadow-lg",
+                  "rounded",
+                  "bg-navy-600",
+                  "p-8",
+                  "flex",
+                  "flex-col",
+                  "justify-between",
+                )}
+                style={{
+                  backgroundImage: `url(${AlteKantiAarauLogo})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                }}>
+                <div>
+                  <p className={clsx("text-gray-400", "mb-1")}>Graduate of</p>
+                  <span className={clsx("text-3xl", "mb-6", "block")}>
+                    Alte Kanti Aarau
+                  </span>
+                </div>
+                <a
+                  href="http://altekanti.ch/"
+                  target="_blank"
+                  className={clsx(
+                    "hover:text-orange-400",
+                    "transition-colors",
+                    "text-right",
+                  )}>
+                  Learn More <BiLinkExternal className={clsx("inline")} />
+                </a>
+              </div>
+              <div
+                className={clsx(
+                  "shadow-lg",
+                  "rounded",
+                  "bg-navy-600",
+                  "p-8",
+                  "flex",
+                  "flex-col",
+                  "justify-between",
+                )}
+                style={{
+                  backgroundImage: `url(${JenyusLogo})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                }}>
+                <div>
+                  <p className={clsx("text-gray-400", "mb-1")}>CTO of</p>
+                  <span className={clsx("text-3xl", "mb-6", "block")}>
+                    Jenyus Org
+                  </span>
+                </div>
+                <a
+                  href="https://landing-page-97297.web.app/"
+                  target="_blank"
+                  className={clsx(
+                    "hover:text-orange-400",
+                    "transition-colors",
+                    "text-right",
+                  )}>
+                  Learn More <BiLinkExternal className={clsx("inline")} />
+                </a>
+              </div>
+              <div
+                className={clsx(
+                  "shadow-lg",
+                  "rounded",
+                  "bg-navy-600",
+                  "p-8",
+                  "flex",
+                  "flex-col",
+                  "justify-between",
+                )}
+                style={{
+                  backgroundImage: `url(${RecogLogo})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "contain",
+                  backgroundPosition: "center",
+                }}>
+                <div>
+                  <p className={clsx("text-gray-400", "mb-1")}>Developer of</p>
+                  <span className={clsx("text-3xl", "mb-6", "block")}>
+                    Recog
+                  </span>
+                </div>
+                <a
+                  href="https://github.com/Jenyus-Org/recog"
+                  target="_blank"
+                  className={clsx(
+                    "hover:text-orange-400",
+                    "transition-colors",
+                    "text-right",
+                  )}>
+                  GitHub Repository{" "}
+                  <BiLinkExternal className={clsx("inline")} />
+                </a>
+              </div>
+              <div
+                className={clsx(
+                  "shadow-lg",
+                  "rounded",
+                  "bg-navy-600",
+                  "p-8",
+                  "flex",
+                  "flex-col",
+                  "justify-between",
+                )}>
+                <div>
+                  <p className={clsx("text-gray-400", "mb-1")}>Creator of</p>
+                  <span className={clsx("text-3xl", "mb-6", "block")}>
+                    Banhammer
+                  </span>
+                </div>
+                <a
+                  href="https://github.com/Dan6erbond/Banhammer.py"
+                  target="_blank"
+                  className={clsx(
+                    "hover:text-orange-400",
+                    "transition-colors",
+                    "text-right",
+                  )}>
+                  GitHub Repository{" "}
+                  <BiLinkExternal className={clsx("inline")} />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <IndicatorNav
