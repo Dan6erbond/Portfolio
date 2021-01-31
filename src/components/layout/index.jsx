@@ -4,6 +4,9 @@ import clsx from "clsx";
 import { Link } from "gatsby";
 import React from "react";
 import Logo from "../../assets/logo_orange_gradient.inline.svg";
+import { HiOutlineMail } from "react-icons/hi";
+import { socials } from "../../utils/helpers";
+import Fab from "../fab";
 
 const Layout = ({ children, className }) => {
   const paths = [
@@ -64,20 +67,51 @@ const Layout = ({ children, className }) => {
           ))}
         </div>
       </nav>
-      <main
-        className={clsx(
-          "min-h-screen",
-          "pb-20",
-          "md:pb-10",
-          "pt-10",
-          "md:pt-20",
-          className,
-        )}>
-        {children}
-      </main>
-      <footer className={clsx("mt-4", "py-8", "px-6", "bg-navy-600")}>
-        Footer.
-      </footer>
+      <div className={clsx("pb-20", "md:pb-0", "pt-10", "md:pt-20")}>
+        <main className={clsx("min-h-screen", "pb-10", className)}>
+          {children}
+        </main>
+        <footer
+          className={clsx(
+            "mt-4",
+            "pt-8",
+            "pb-4",
+            "px-6",
+            "bg-navy-600",
+            "flex",
+            "justify-between",
+            "items-center",
+          )}>
+          <div className={clsx("inline-block")}>
+            © Copyright 2021 - RaviAnand Mohabir
+          </div>
+          <div>
+            <ul>
+              {Object.keys(socials).map((social) => (
+                <li className={clsx("mb-2")}>
+                  <a
+                    href={socials[social].url}
+                    target="_blank"
+                    className={clsx(
+                      "transition-colors",
+                      "hover:text-orange-500",
+                    )}>
+                    {React.createElement(socials[social].icon, {
+                      className: clsx("inline", "mr-2"),
+                    })}
+                    {socials[social].name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </footer>
+      </div>
+      <Fab>
+        <a className={clsx("h-4/6", "w-4/6")} href="mailto:moravrav@gmail.com">
+          <HiOutlineMail className={clsx("h-full", "w-full")} />
+        </a>
+      </Fab>
     </React.Fragment>
   );
 };

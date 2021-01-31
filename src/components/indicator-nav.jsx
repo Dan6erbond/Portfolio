@@ -41,7 +41,7 @@ const IndicatorNav = ({
   items,
   activeItemId,
   className,
-  breakpoint = "sm",
+  breakpoint = "md",
 }) => (
   <div
     className={clsx(

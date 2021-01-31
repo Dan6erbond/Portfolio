@@ -381,7 +381,14 @@ const IndexPage = () => {
           { text: "Technologies", id: "technologies" },
           { text: "About", id: "about" },
         ]}
-        className={clsx("fixed", "right-0", "top-0", "bottom-0")}
+        className={clsx(
+          "fixed",
+          "pointer-events-none",
+          "right-0",
+          "top-0",
+          "bottom-0",
+          "z-50",
+        )}
         activeItemId={visibleSection}
       />
     </Layout>

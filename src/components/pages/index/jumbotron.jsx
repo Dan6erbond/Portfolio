@@ -4,8 +4,10 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 import * as React from "react";
 import { BsArrowRightShort, BsCheckCircle } from "react-icons/bs";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import Waves from "../../../assets/waves.inline.svg";
+import { socials } from "../../../utils/helpers";
+
+const tagwords = ["Creative", "Efficient", "Driven"];
 
 const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
   return (
@@ -95,95 +97,48 @@ const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
                 transition={{ staggerChildren: 0.07 }}
                 initial="hidden"
                 animate="show">
-                <motion.li
-                  className={clsx("mb-4")}
-                  variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: 25,
-                      transition: {
-                        y: { stiffness: 1000, velocity: -100 },
+                {tagwords.map((tagword) => (
+                  <motion.li
+                    key={tagword}
+                    className={clsx("mb-4")}
+                    variants={{
+                      hidden: {
+                        opacity: 0,
+                        y: 25,
+                        transition: {
+                          y: { stiffness: 1000, velocity: -100 },
+                        },
                       },
-                    },
-                    show: {
-                      opacity: 1,
-                      y: 0,
-                      transition: {
-                        y: { stiffness: 1000 },
+                      show: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          y: { stiffness: 1000 },
+                        },
                       },
-                    },
-                  }}>
-                  <BsCheckCircle className={clsx("inline", "mr-2")} />
-                  Creative
-                </motion.li>
-                <motion.li
-                  className={clsx("mb-4")}
-                  variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: 25,
-                      transition: {
-                        y: { stiffness: 1000, velocity: -100 },
-                      },
-                    },
-                    show: {
-                      opacity: 1,
-                      y: 0,
-                      transition: {
-                        y: { stiffness: 1000 },
-                      },
-                    },
-                  }}>
-                  <BsCheckCircle className={clsx("inline", "mr-2")} />
-                  Efficient
-                </motion.li>
-                <motion.li
-                  className={clsx("mb-4")}
-                  variants={{
-                    hidden: {
-                      opacity: 0,
-                      y: 25,
-                      transition: {
-                        y: { stiffness: 1000, velocity: -100 },
-                      },
-                    },
-                    show: {
-                      opacity: 1,
-                      y: 0,
-                      transition: {
-                        y: { stiffness: 1000 },
-                      },
-                    },
-                  }}>
-                  <BsCheckCircle className={clsx("inline", "mr-2")} />
-                  Driven
-                </motion.li>
+                    }}>
+                    <BsCheckCircle className={clsx("inline", "mr-2")} />
+                    {tagword}
+                  </motion.li>
+                ))}
               </motion.ul>
               <ul className={clsx("text-right", "md:text-left")}>
-                <li className={clsx("mb-4")}>
-                  <a
-                    href="https://github.com/Dan6erbond"
-                    target="_blank"
-                    className={clsx(
-                      "transition-colors",
-                      "hover:text-orange-500",
-                    )}>
-                    <FaGithub className={clsx("inline", "mr-2")} />
-                    GitHub
-                  </a>
-                </li>
-                <li className={clsx("mb-4")}>
-                  <a
-                    href="https://www.linkedin.com/in/ravianand-mohabir-b3811b1b4"
-                    target="_blank"
-                    className={clsx(
-                      "transition-colors",
-                      "hover:text-orange-500",
-                    )}>
-                    <FaLinkedinIn className={clsx("inline", "mr-2")} />
-                    LinkedIn
-                  </a>
-                </li>
+                {["github", "linkedIn"].map((social) => (
+                  <li className={clsx("mb-4")}>
+                    <a
+                      href={socials[social].url}
+                      target="_blank"
+                      className={clsx(
+                        "transition-colors",
+                        "hover:text-orange-500",
+                      )}>
+                      {React.createElement(socials[social].icon, {
+                        className: clsx("inline", "mr-2"),
+                      })}
+                      {socials[social].name}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
