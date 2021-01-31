@@ -21,6 +21,12 @@ query ($user: String!, $reposFirst: Int!, $languagesFirst: Int!) {
               }
             }
           }
+          primaryLanguage {
+            name
+            id
+            color
+          }
+          pushedAt
         }
       }
     }

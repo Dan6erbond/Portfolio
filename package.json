@@ -55,6 +55,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
+    "react-intersection-observer": "^8.31.0",
     "sass": "^1.32.5"
   },
   "devDependencies": {

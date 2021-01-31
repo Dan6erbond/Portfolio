@@ -20,6 +20,19 @@ module.exports = {
         },
         orange: colors.orange,
       },
+      flex: {
+        full: "0 0 100%",
+        2: "2 2 0%",
+        3: "3 3 0%",
+        4: "4 4 0%",
+        5: "5 5 0%",
+        6: "6 6 0%",
+      },
+      fontFamily: {
+        sans: "Oxygen",
+        ...defaultTheme.fontFamily.sans,
+        title: ["Exo"],
+      },
       keyframes: {
         "bounce-x": {
           "0%, 100%": {
@@ -34,11 +47,6 @@ module.exports = {
       },
       maxWidth: {
         xxs: "16rem",
-      },
-      fontFamily: {
-        sans: "Oxygen",
-        ...defaultTheme.fontFamily.sans,
-        title: ["Exo"],
       },
     },
   },
