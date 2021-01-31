@@ -137,22 +137,37 @@ const IndexPage = () => {
       title: "C# / ASP.NET Core",
       lang: "C#",
       logo: aspNetCoreLogo,
+      proficiency: 4,
+      description:
+        "C# strikes the ideal balance for backend projects and APIs with high-speed requirements and an organized project structure, making it very easy to combine with a choice of frontend frameworks such as React or Vue.",
     },
     {
       lang: "JavaScript",
       logo: nodeJsLogo,
+      proficiency: 5,
+      description:
+        "NodeJS presents itself as an opportunity for me to focus on the functionality of an application and let my host as well as the underlying frameworks take care of the details. Real-time applications are a breeze with this language and it provides the foundation for frontend applications as well.",
     },
     {
       lang: "Python",
       logo: pythonLogo,
+      proficiency: 4,
+      description:
+        "I've used Python in many projects, from automation to machine learning, as well as implementing RESTful APIs to connect my web apps to. The well-structured syntax and good selection of frameworks enable rapid development of modern applications.",
     },
     {
       lang: "TypeScript",
       logo: typescriptLogo,
+      proficiency: 5,
+      description:
+        "Recog and projects like it require more structure and type-safety than languages like Javascript and Python provide, which is why I've chosen to use it in all my larger-scale projects to ensure a well structured and thought-out codebase.",
     },
     {
       lang: "Vue",
       logo: vueLogo,
+      proficiency: 5,
+      description:
+        "Vue is a fantastic alternative to React, and one I enjoy using for smaller projects as it handles a lot of things for me. Landing pages and small hobby projects have been a breeze with this modern frontend framework.",
     },
   ];
 
@@ -164,15 +179,19 @@ const IndexPage = () => {
         className={clsx("py-16", "px-8", "max-w-screen-xl", "mx-auto", "mb-16")}
         ref={technologiesRef}>
         <h2 className={clsx("text-3xl", "mb-8")}>Technologies</h2>
-        {technologies.map(({ title, lang, logo }, index) => (
-          <Technology
-            logo={logo}
-            title={title || lang}
-            repositories={getRepoByLanguage(lang)}
-            lang={lang}
-            imgPos={index % 2 === 0 ? "right" : "left"}
-          />
-        ))}
+        {technologies.map(
+          ({ title, lang, logo, proficiency, description }, index) => (
+            <Technology
+              logo={logo}
+              title={title || lang}
+              repositories={getRepoByLanguage(lang)}
+              lang={lang}
+              imgPos={index % 2 === 0 ? "right" : "left"}
+              proficiency={proficiency}
+              description={description}
+            />
+          ),
+        )}
       </div>
       <div
         id="about"
@@ -241,7 +260,8 @@ const IndexPage = () => {
                 "md:grid-cols-2",
                 "gap-8",
                 "py-8",
-                "px-16",
+                "px-4",
+                "md:px-16",
               )}>
               <div
                 className={clsx(
