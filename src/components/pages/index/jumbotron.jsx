@@ -126,6 +126,7 @@ const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
                 {["github", "linkedIn"].map((social) => (
                   <li className={clsx("mb-4")}>
                     <a
+                      key={social}
                       href={socials[social].url}
                       target="_blank"
                       className={clsx(
