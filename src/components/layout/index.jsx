@@ -57,7 +57,8 @@ const Layout = ({ children, className }) => {
               to={path}
               className={clsx(
                 "text-gray-400",
-                "mr-8",
+                "mr-4",
+                "md:mr-8",
                 "hover:text-orange-400",
                 "transition-colors",
               )}
@@ -79,10 +80,11 @@ const Layout = ({ children, className }) => {
             "px-6",
             "bg-navy-600",
             "flex",
+            "flex-wrap",
             "justify-between",
             "items-center",
           )}>
-          <div className={clsx("inline-block")}>
+          <div className={clsx("inline-block", "mb-2", "md:mb-0")}>
             © Copyright 2021 - RaviAnand Mohabir
           </div>
           <div>
