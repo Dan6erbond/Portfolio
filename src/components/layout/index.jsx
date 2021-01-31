@@ -9,9 +9,6 @@ import Logo from "../../assets/logo_orange_gradient.inline.svg";
 const Layout = ({ children, className }) => {
   return (
     <React.Fragment>
-      <Helmet>
-        <body className={clsx("dark:text-white", "dark:bg-navy-800")} />
-      </Helmet>
       <nav
         className={clsx(
           "fixed",
