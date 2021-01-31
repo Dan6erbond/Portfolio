@@ -108,9 +108,9 @@ const IndexPage = () => {
   const [aboutRef, aboutVisible] = useInView();
 
   const visibleSection = React.useMemo(() => {
+    if (aboutVisible) return "about";
+    if (technologiesVisible) return "technologies";
     if (introVisible) return "intro";
-    else if (technologiesVisible) return "technologies";
-    else if (aboutVisible) return "about";
   }, [introVisible, technologiesVisible, aboutVisible]);
 
   const getRepoByLanguage = React.useCallback(
