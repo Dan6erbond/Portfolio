@@ -4,7 +4,15 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const Technology = ({ logo, title, repositories, imgPos = "left", lang }) => {
+const Technology = ({
+  logo,
+  title,
+  repositories,
+  imgPos = "left",
+  lang,
+  description,
+  proficiency,
+}) => {
   const [ref, visible] = useInView();
 
   const lastRepositoryPushed = React.useMemo(
@@ -73,6 +81,9 @@ const Technology = ({ logo, title, repositories, imgPos = "left", lang }) => {
         )}>
         <h3 className={clsx("text-2xl")}>{title}</h3>
         <br />
+        {description && (
+          <div className={clsx("text-gray-500", "mb-4")}>{description}</div>
+        )}
         <p>
           <b>Showcase project:</b>{" "}
           <a
@@ -83,7 +94,43 @@ const Technology = ({ logo, title, repositories, imgPos = "left", lang }) => {
           </a>
           <br />
           <b>Number of repositories:</b> {repositories.length}
+          <br />
         </p>
+        <br />
+        {proficiency && (
+          <div className={clsx("flex", "flex-wrap", "items-center")}>
+            <span className={clsx("mr-4")}>
+              <b>Proficiency:</b>
+            </span>
+            <span>
+              {[...Array(proficiency).keys()].map((k) => (
+                <div
+                  key={k}
+                  className={clsx(
+                    "transition-colors",
+                    "inline-block",
+                    "rounded-full",
+                    "h-4",
+                    "w-4",
+                    "p-1",
+                    "border-2",
+                    "border-orange-400",
+                    "mr-2",
+                  )}>
+                  <div
+                    className={clsx(
+                      "transition-colors",
+                      "rounded-full",
+                      "h-full",
+                      "w-full",
+                      "bg-orange-400",
+                    )}></div>
+                </div>
+              ))}
+            </span>
+            <span className={clsx("ml-2")}>{proficiency}/5</span>
+          </div>
+        )}
       </motion.div>
       {imgPos === "right" && (
         <motion.div
