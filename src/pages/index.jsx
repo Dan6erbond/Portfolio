@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
 import * as React from "react";
+import { useInView } from "react-intersection-observer";
 import Layout from "../components/layout";
 import Jumbotron from "../components/pages/index/jumbotron";
+import IndicatorNav from "../components/indicator-nav";
 import Technology from "../components/pages/index/technology";
 import SEO from "../components/seo";
 
@@ -102,23 +103,15 @@ const IndexPage = () => {
     `,
   );
 
-  const languages = React.useMemo(() => {
-    const repositories =
-      allGithubData.edges[0].node.data.user.repositories.edges;
-    const languages = [];
+  const [introRef, introVisible] = useInView();
+  const [technologiesRef, technologiesVisible] = useInView();
+  const [aboutRef, aboutVisible] = useInView();
 
-    for (const repository of repositories) {
-      const repoLanguages = repository.node.languages.edges.map(
-        (lang) => lang.node.name,
-      );
-      const uniqueLanguages = repoLanguages.filter(
-        (lang) => languages.indexOf(lang) === -1,
-      );
-      languages.push(...uniqueLanguages);
-    }
-
-    return languages;
-  }, [allGithubData]);
+  const visibleSection = React.useMemo(() => {
+    if (introVisible) return "intro";
+    else if (technologiesVisible) return "technologies";
+    else if (aboutVisible) return "about";
+  }, [introVisible, technologiesVisible, aboutVisible]);
 
   const getRepoByLanguage = React.useCallback(
     (lang) => {
@@ -135,57 +128,99 @@ const IndexPage = () => {
     [allGithubData],
   );
 
-  const getRepoByPrimaryLanguage = React.useCallback(
-    (lang) => {
-      const repositories =
-        allGithubData.edges[0].node.data.user.repositories.edges;
-
-      return repositories.filter(
-        (repository) => repository.node.primaryLanguage?.name === lang,
-      );
+  const technologies = [
+    {
+      title: "C# / ASP.NET Core",
+      lang: "C#",
+      logo: aspNetCoreLogo,
     },
-    [allGithubData],
-  );
+    {
+      lang: "JavaScript",
+      logo: nodeJsLogo,
+    },
+    {
+      lang: "Python",
+      logo: pythonLogo,
+    },
+    {
+      lang: "TypeScript",
+      logo: typescriptLogo,
+    },
+    {
+      lang: "Vue",
+      logo: vueLogo,
+    },
+  ];
 
   return (
     <Layout>
       <SEO title="Home" />
-      <Jumbotron profileImg={profileImg} />
-      <div className={clsx("py-16", "px-8")}>
+      <Jumbotron ref={introRef} profileImg={profileImg} />
+      <div
+        className={clsx("py-16", "px-8", "max-w-screen-xl", "mx-auto", "mb-16")}
+        ref={technologiesRef}>
         <h2 className={clsx("text-3xl", "mb-8")}>Technologies</h2>
-        <Technology
-          logo={aspNetCoreLogo}
-          title="C# / ASP.NET Core"
-          repositories={getRepoByLanguage("C#")}
-          lang="C#"
-        />
-        <Technology
-          logo={nodeJsLogo}
-          title="Javascript"
-          repositories={getRepoByLanguage("JavaScript")}
-          lang="JavaScript"
-          imgPos="right"
-        />
-        <Technology
-          logo={pythonLogo}
-          title="Python"
-          repositories={getRepoByLanguage("Python")}
-          lang="Python"
-        />
-        <Technology
-          logo={typescriptLogo}
-          title="Typescript"
-          repositories={getRepoByLanguage("TypeScript")}
-          lang="TypeScript"
-          imgPos="right"
-        />
-        <Technology
-          logo={vueLogo}
-          title="Vue"
-          repositories={getRepoByLanguage("Vue")}
-          lang="Vue"
-        />
+        {technologies.map(({ title, lang, logo }, index) => (
+          <Technology
+            logo={logo}
+            title={title || lang}
+            repositories={getRepoByLanguage(lang)}
+            lang={lang}
+            imgPos={index % 2 === 0 ? "right" : "left"}
+          />
+        ))}
       </div>
+      <div
+        id="about"
+        className={clsx(
+          "pt-32",
+          "pb-16",
+          "px-8",
+          "max-w-screen-xl",
+          "mx-auto",
+          "min-h-screen",
+        )}
+        ref={aboutRef}>
+        <div className={clsx("flex")}>
+          <div className={clsx("flex-1")}>
+            <h2 className={clsx("text-3xl", "mb-2")}>About Me</h2>
+            <div className={clsx("mb-6", "font-bold", "text-gray-400")}>
+              <span className={clsx("text-navy-300")}>
+                {Math.abs(
+                  new Date(
+                    Date.now() - new Date(2002, 9 - 1, 19),
+                  ).getUTCFullYear() - 1970,
+                )}{" "}
+                years
+              </span>
+              <span className={clsx("mx-4")}>/</span>
+            </div>
+            <p>
+              Motivated, engaged full stack web developer with a passion for
+              software architecture and design. Always looking for new projects
+              and currently working on the Jenyus IT start-up and its primary
+              project{" "}
+              <a
+                className={clsx("underline", "text-navy-200")}
+                target="_blank"
+                href="https://github.com/Jenyus-Org">
+                Recog
+              </a>
+              .
+            </p>
+          </div>
+          <div className={clsx("flex-1")}></div>
+        </div>
+      </div>
+      <IndicatorNav
+        items={[
+          { text: "Intro", id: "intro" },
+          { text: "Technologies", id: "technologies" },
+          { text: "About", id: "about" },
+        ]}
+        className={clsx("fixed", "right-0", "top-0", "bottom-0")}
+        activeItemId={visibleSection}
+      />
     </Layout>
   );
 };
