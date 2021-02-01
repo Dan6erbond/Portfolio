@@ -2,12 +2,6 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import * as React from "react";
 
-const spring = {
-  type: "spring",
-  stiffness: 500,
-  damping: 30,
-};
-
 const Fab = ({ className, children }) => {
   const [bottom, setBottom] = React.useState(140);
 
@@ -47,7 +41,7 @@ const Fab = ({ className, children }) => {
         "z-50",
         className,
       )}
-      transition={spring}>
+      transition={{ ease: "easeInOut", duration: 0.3 }}>
       {children}
     </motion.div>
   );
