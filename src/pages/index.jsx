@@ -23,10 +23,10 @@ const IndexPage = () => {
     allGithubData,
   } = useStaticQuery(
     graphql`
-      query ImagesQuery {
+      query IndexPageQuery {
         profileImg: file(relativePath: { eq: "ravi_1.png" }) {
           childImageSharp {
-            fluid(maxWidth: 350) {
+            fluid(maxWidth: 550) {
               ...GatsbyImageSharpFluid
             }
           }
