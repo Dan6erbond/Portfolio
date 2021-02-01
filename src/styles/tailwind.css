@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply dark:text-white dark:bg-navy-800;
+    @apply dark:text-white dark:bg-navy-800 overflow-x-hidden;
   }
 }
