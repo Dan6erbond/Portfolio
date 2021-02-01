@@ -24,7 +24,7 @@ const IndexPage = () => {
   } = useStaticQuery(
     graphql`
       query ImagesQuery {
-        profileImg: file(relativePath: { eq: "ravi_2_1_cropped_1.png" }) {
+        profileImg: file(relativePath: { eq: "ravi_1.png" }) {
           childImageSharp {
             fluid(maxWidth: 350) {
               ...GatsbyImageSharpFluid
@@ -176,7 +176,14 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Jumbotron ref={introRef} profileImg={profileImg} />
       <div
-        className={clsx("py-16", "px-2", "md:px-8", "max-w-screen-xl", "mx-auto", "mb-16")}
+        className={clsx(
+          "py-16",
+          "px-2",
+          "md:px-8",
+          "max-w-screen-xl",
+          "mx-auto",
+          "mb-16",
+        )}
         ref={technologiesRef}>
         <h2 className={clsx("text-3xl", "mb-8")}>Technologies</h2>
         {technologies.map(
