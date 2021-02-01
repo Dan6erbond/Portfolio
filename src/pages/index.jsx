@@ -1,15 +1,15 @@
 import clsx from "clsx";
 import { graphql, useStaticQuery } from "gatsby";
 import * as React from "react";
-import { BiLinkExternal } from "react-icons/bi";
 import { useInView } from "react-intersection-observer";
 import IndicatorNav from "../components/indicator-nav";
 import Layout from "../components/layout";
+import AboutCard from "../components/pages/index/about-card";
 import Jumbotron from "../components/pages/index/jumbotron";
 import Technology from "../components/pages/index/technology";
 import SEO from "../components/seo";
-import JenyusLogo from "../images/jenyus_logo.svg";
 import AlteKantiAarauLogo from "../images/alte_kanti_aarau_logo.svg";
+import JenyusLogo from "../images/jenyus_logo.svg";
 import RecogLogo from "../images/recog_logo.svg";
 
 const IndexPage = () => {
@@ -270,134 +270,46 @@ const IndexPage = () => {
                 "px-4",
                 "md:px-16",
               )}>
-              <div
-                className={clsx(
-                  "shadow-lg",
-                  "rounded",
-                  "bg-navy-600",
-                  "p-8",
-                  "flex",
-                  "flex-col",
-                  "justify-between",
-                )}
+              <AboutCard
+                text="Graduate of"
+                title="Alte Kanti Aarau"
+                url="http://altekanti.ch/"
                 style={{
                   backgroundImage: `url(${AlteKantiAarauLogo})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "contain",
                   backgroundPosition: "center",
-                }}>
-                <div>
-                  <p className={clsx("text-gray-400", "mb-1")}>Graduate of</p>
-                  <span className={clsx("text-3xl", "mb-6", "block")}>
-                    Alte Kanti Aarau
-                  </span>
-                </div>
-                <a
-                  href="http://altekanti.ch/"
-                  target="_blank"
-                  className={clsx(
-                    "hover:text-orange-400",
-                    "transition-colors",
-                    "text-right",
-                  )}>
-                  Learn More <BiLinkExternal className={clsx("inline")} />
-                </a>
-              </div>
-              <div
-                className={clsx(
-                  "shadow-lg",
-                  "rounded",
-                  "bg-navy-600",
-                  "p-8",
-                  "flex",
-                  "flex-col",
-                  "justify-between",
-                )}
+                }}
+              />
+              <AboutCard
+                text="CTO of"
+                title="Jenyus Org"
+                url="https://landing-page-97297.web.app/"
                 style={{
                   backgroundImage: `url(${JenyusLogo})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "contain",
                   backgroundPosition: "center",
-                }}>
-                <div>
-                  <p className={clsx("text-gray-400", "mb-1")}>CTO of</p>
-                  <span className={clsx("text-3xl", "mb-6", "block")}>
-                    Jenyus Org
-                  </span>
-                </div>
-                <a
-                  href="https://landing-page-97297.web.app/"
-                  target="_blank"
-                  className={clsx(
-                    "hover:text-orange-400",
-                    "transition-colors",
-                    "text-right",
-                  )}>
-                  Learn More <BiLinkExternal className={clsx("inline")} />
-                </a>
-              </div>
-              <div
-                className={clsx(
-                  "shadow-lg",
-                  "rounded",
-                  "bg-navy-600",
-                  "p-8",
-                  "flex",
-                  "flex-col",
-                  "justify-between",
-                )}
+                }}
+              />
+              <AboutCard
+                text="Developer of"
+                title="Recog"
+                linkText="GitHub Repository"
+                url="https://github.com/Jenyus-Org/recog"
                 style={{
                   backgroundImage: `url(${RecogLogo})`,
                   backgroundRepeat: "no-repeat",
                   backgroundSize: "contain",
                   backgroundPosition: "center",
-                }}>
-                <div>
-                  <p className={clsx("text-gray-400", "mb-1")}>Developer of</p>
-                  <span className={clsx("text-3xl", "mb-6", "block")}>
-                    Recog
-                  </span>
-                </div>
-                <a
-                  href="https://github.com/Jenyus-Org/recog"
-                  target="_blank"
-                  className={clsx(
-                    "hover:text-orange-400",
-                    "transition-colors",
-                    "text-right",
-                  )}>
-                  GitHub Repository{" "}
-                  <BiLinkExternal className={clsx("inline")} />
-                </a>
-              </div>
-              <div
-                className={clsx(
-                  "shadow-lg",
-                  "rounded",
-                  "bg-navy-600",
-                  "p-8",
-                  "flex",
-                  "flex-col",
-                  "justify-between",
-                )}>
-                <div>
-                  <p className={clsx("text-gray-400", "mb-1")}>Creator of</p>
-                  <span className={clsx("text-3xl", "mb-6", "block")}>
-                    Banhammer
-                  </span>
-                </div>
-                <a
-                  href="https://github.com/Dan6erbond/Banhammer.py"
-                  target="_blank"
-                  className={clsx(
-                    "hover:text-orange-400",
-                    "transition-colors",
-                    "text-right",
-                  )}>
-                  GitHub Repository{" "}
-                  <BiLinkExternal className={clsx("inline")} />
-                </a>
-              </div>
+                }}
+              />
+              <AboutCard
+                text="Creator of"
+                title="Banhammer"
+                linkText="GitHub Repository"
+                url="https://github.com/Dan6erbond/Banhammer.py"
+              />
             </div>
           </div>
         </div>
@@ -417,6 +329,7 @@ const IndexPage = () => {
           "z-50",
         )}
         activeItemId={visibleSection}
+        breakpoint="lg"
       />
     </Layout>
   );
