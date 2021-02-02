@@ -1,19 +1,19 @@
 import clsx from "clsx";
-import { useStaticQuery } from "gatsby";
+import { motion } from "framer-motion";
+import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import * as React from "react";
-import { BsFillCalendarFill, BsLaptop, BsGearFill } from "react-icons/bs";
 import { BiServer } from "react-icons/bi";
+import { BsFillCalendarFill, BsGearFill, BsLaptop } from "react-icons/bs";
 import { GiBoxingGlove, GiGuitar, GiPhotoCamera, GiRun } from "react-icons/gi";
 import { useInView } from "react-intersection-observer";
-import USFlag from "../assets/us_flag.inline.svg";
-import SwissFlag from "../assets/swiss_flag.inline.svg";
-import GermanFlag from "../assets/german_flag.inline.svg";
 import FrenchFlag from "../assets/french_flag.inline.svg";
+import GermanFlag from "../assets/german_flag.inline.svg";
+import SwissFlag from "../assets/swiss_flag.inline.svg";
+import USFlag from "../assets/us_flag.inline.svg";
 import IndicatorNav from "../components/indicator-nav";
 import Layout from "../components/layout";
 import Language from "../components/pages/cv/language";
-import { motion } from "framer-motion";
 import SEO from "../components/seo";
 
 const frontendSkills = [

@@ -1,7 +1,7 @@
 import clsx from "clsx";
+import { motion } from "framer-motion";
 import Img from "gatsby-image";
 import * as React from "react";
-import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 const Technology = ({

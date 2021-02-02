@@ -3,8 +3,8 @@ import "@fontsource/oxygen";
 import clsx from "clsx";
 import { Link } from "gatsby";
 import React from "react";
-import Logo from "../../assets/logo_orange_gradient.inline.svg";
 import { HiOutlineMail } from "react-icons/hi";
+import Logo from "../../assets/logo_orange_gradient.inline.svg";
 import { socials } from "../../utils/helpers";
 import Fab from "../fab";
 
