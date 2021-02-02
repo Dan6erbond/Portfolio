@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "ravi-180905"
+  },
+  "targets": {
+    "ravi-180905": {
+      "hosting": {
+        "main": [
+          "ravianand"
+        ]
+      }
+    }
   }
 }
