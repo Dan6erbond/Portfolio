@@ -24,7 +24,7 @@ module.exports = {
         lang: "en",
         start_url: "/",
         background_color: "#0F0E18",
-        theme_color: "#f97316",
+        theme_color: "#171F33",
         display: "minimal-ui",
         icon: "src/images/logo_navy.svg",
       },
