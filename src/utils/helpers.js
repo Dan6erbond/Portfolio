@@ -8,7 +8,7 @@ export const socials = {
   },
   linkedIn: {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/ravianand-mohabir-b3811b1b4",
+    url: "https://www.linkedin.com/in/ravianand-mohabir/",
     icon: FaLinkedinIn,
   },
   reddit: {
