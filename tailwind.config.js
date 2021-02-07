@@ -6,6 +6,9 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
+      animation: {
+        "bounce-x": "bounce-x 1s ease-in-out infinite",
+      },
       colors: {
         navy: {
           100: "#526DB3",
