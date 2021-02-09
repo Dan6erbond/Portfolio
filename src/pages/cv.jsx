@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import * as React from "react";
 import { BiServer } from "react-icons/bi";
-import { BsFillCalendarFill, BsGearFill, BsLaptop } from "react-icons/bs";
+import { BsGearFill, BsLaptop } from "react-icons/bs";
 import { GiBoxingGlove, GiGuitar, GiPhotoCamera, GiRun } from "react-icons/gi";
 import { useInView } from "react-intersection-observer";
 import FrenchFlag from "../assets/french_flag.inline.svg";
@@ -14,6 +14,7 @@ import USFlag from "../assets/us_flag.inline.svg";
 import IndicatorNav from "../components/indicator-nav";
 import Layout from "../components/layout";
 import Language from "../components/pages/cv/language";
+import Timeline from "../components/pages/cv/timeline";
 import SEO from "../components/seo";
 
 const frontendSkills = [
@@ -90,20 +91,20 @@ const ResumePage = () => {
 
   const [introRef, introVisible] = useInView({ threshold: 0.75 });
   const [languagesRef, languagesVisible] = useInView({ threshold: 0.75 });
-  const [educationRef, educationVisible] = useInView({ threshold: 0.75 });
+  const [experienceRef, experienceVisible] = useInView({ threshold: 0.75 });
   const [skillsRef, skillsVisible] = useInView({ threshold: 0.75 });
   const [passionsRef, passionsVisible] = useInView({ threshold: 0.75 });
 
   const visibleSection = React.useMemo(() => {
     if (introVisible) return "intro";
     if (languagesVisible) return "languages";
-    if (educationVisible) return "education";
+    if (experienceVisible) return "experience";
     if (skillsVisible) return "skills";
     if (passionsVisible) return "passions";
   }, [
     introVisible,
     languagesVisible,
-    educationVisible,
+    experienceVisible,
     skillsVisible,
     passionsVisible,
   ]);
@@ -294,9 +295,9 @@ const ResumePage = () => {
             </div>
           </div>
         </div>
-        <div className={clsx("mb-8")} ref={educationRef}>
-          <h2 className={clsx("text-2xl", "mb-8")}>Education</h2>
-          <BsFillCalendarFill />
+        <div className={clsx("mb-8")} ref={experienceRef}>
+          <h2 className={clsx("text-2xl", "mb-8")}>Experience</h2>
+          <Timeline/>
         </div>
         <div className={clsx("mb-8")} ref={passionsRef}>
           <h2 className={clsx("text-2xl", "mb-8")}>Passions</h2>
@@ -373,7 +374,7 @@ const ResumePage = () => {
           { text: "Intro", id: "intro" },
           { text: "Languages", id: "languages" },
           { text: "Skills", id: "skills" },
-          { text: "Education", id: "education" },
+          { text: "Experience", id: "experience" },
           { text: "Passions", id: "passions" },
         ]}
         className={clsx(

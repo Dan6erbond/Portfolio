@@ -36,6 +36,9 @@ module.exports = {
         ...defaultTheme.fontFamily.sans,
         title: ["Exo"],
       },
+      inset: {
+        "1/12": `${1 / 12}%`,
+      },
       keyframes: {
         "bounce-x": {
           "0%, 100%": {
