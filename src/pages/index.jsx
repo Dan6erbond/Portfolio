@@ -173,7 +173,12 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Home">
+        <meta
+          name="google-site-verification"
+          content="kb9qYniy2sZcwMZfvr9Xrbs9BNusM68PDtkue0HRs4w"
+        />
+      </SEO>
       <Jumbotron ref={introRef} profileImg={profileImg} />
       <div
         className={clsx(
