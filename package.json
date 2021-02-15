@@ -24,7 +24,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "lint": "eslint --fix",
-    "build:tailwind": "cross-env NODE_ENV=production postcss build src/styles/tailwind.css -o static/styles/tailwind.css"
+    "build:tailwind": "cross-env NODE_ENV=production postcss build src/styles/tailwind.css -o static/styles/tailwind.css",
+    "deploy": "firebase deploy --only hosting"
   },
   "dependencies": {
     "@fontsource/exo": "^4.1.0",
