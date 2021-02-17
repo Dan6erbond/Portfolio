@@ -289,7 +289,7 @@ const IndexPage = () => {
               <AboutCard
                 text="CTO of"
                 title="Jenyus Org"
-                url="https://landing-page-97297.web.app/"
+                url="https://jenyus.web.app/"
                 style={{
                   backgroundImage: `url(${JenyusLogo})`,
                   backgroundRepeat: "no-repeat",
