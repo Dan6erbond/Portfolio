@@ -15,6 +15,10 @@ const Layout = ({ children, className }) => {
       title: "Projects",
     },
     {
+      path: "/blog",
+      title: "Blog",
+    },
+    {
       path: "/cv",
       title: "Resume",
     },
