@@ -11,7 +11,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import logo from "../images/logo_orange.png";
 
-function SEO({ description, lang, meta, keywords, title, children }) {
+function SEO({ description, lang, keywords, title, children }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -34,64 +34,35 @@ function SEO({ description, lang, meta, keywords, title, children }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: `${title} | ${site.siteMetadata.title}`,
-        },
-        {
-          property: "og:image",
-          content: logo,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: `${title} | ${site.siteMetadata.title}`,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : [],
-        )
-        .concat(meta)}>
+      titleTemplate={`%s | ${site.siteMetadata.title}`}>
+      <meta name="description" content={metaDescription} />
+      <meta
+        property="og:title"
+        content={`${title} | ${site.siteMetadata.title}`}
+      />
+      <meta property="og:image" content={logo} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:creator" content={site.siteMetadata.author} />
+      <meta
+        property="twitter:title"
+        content={`${title} | ${site.siteMetadata.title}`}
+      />
+      <meta property="twitter:description" content={metaDescription} />
+      {keywords.length && (
+        <meta name="keywords" content={keywords.join(`, `)} />
+      )}
       {children}
     </Helmet>
   );
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: "en",
   meta: [],
   keywords: [],
-  description: ``,
+  description: "",
 };
 
 SEO.propTypes = {
