@@ -57,7 +57,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      ringWidth: ["hover", "active"],
+      ringColor: ["hover", "active"],
+    },
   },
   plugins: [require("@tailwindcss/aspect-ratio")],
 };
