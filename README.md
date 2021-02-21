@@ -9,6 +9,8 @@ If you found this repo you just found the code to my [personal website](https://
 
 It's built with GatsbyJS and React. Hosted on Firebase available at https://ravianand.web.app/. 🔥
 
+I'm using TailwindCSS and Framer Motion for the styles and transitions, as well as MarkdownX and Frontmatter to generate dynamic pages for example [my blog](https://ravianand.web.app/blog/).
+
 ## Like what you see?
 
 This project is licensed under the GNU GPL v3 license, that means you can fork it, clone it, copy it, anything goes as long as you don't sue me!
