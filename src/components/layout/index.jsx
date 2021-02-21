@@ -22,10 +22,6 @@ const Layout = ({ children, className }) => {
       path: "/cv",
       title: "Resume",
     },
-    {
-      path: "/contact",
-      title: "Contact",
-    },
   ];
 
   return (
