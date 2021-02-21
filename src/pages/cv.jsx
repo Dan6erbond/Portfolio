@@ -111,7 +111,10 @@ const ResumePage = () => {
 
   return (
     <Layout>
-      <SEO title="Resume" />
+      <SEO
+        title="Resume"
+        description="An overview of my skills and experience in the field of IT for recruiters and people interested in working with me."
+      />
       <div
         className={clsx(
           "px-4",
@@ -297,7 +300,7 @@ const ResumePage = () => {
         </div>
         <div className={clsx("mb-8")} ref={experienceRef}>
           <h2 className={clsx("text-2xl", "mb-8")}>Experience</h2>
-          <Timeline/>
+          <Timeline />
         </div>
         <div className={clsx("mb-8")} ref={passionsRef}>
           <h2 className={clsx("text-2xl", "mb-8")}>Passions</h2>
