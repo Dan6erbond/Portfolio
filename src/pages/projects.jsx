@@ -76,7 +76,10 @@ const ProjectsPage = () => {
 
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO
+        title="Home"
+        description="Take a look at some of the projects I've worked on over the years."
+      />
       <div
         className={clsx(
           "px-4",
