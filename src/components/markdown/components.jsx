@@ -4,7 +4,11 @@ import * as React from "react";
 export const Paragraph = (props) => <p className={clsx("mb-2")} {...props} />;
 
 export const Heading1 = (props) => (
-  <h2 className={clsx("text-2xl", "mt-8")} {...props} />
+  <h2
+    className={clsx("text-2xl", "mt-8", "mb-2")}
+    id={props.children}
+    {...props}
+  />
 );
 
 export const Heading2 = (props) => (
@@ -37,6 +41,12 @@ export const Link = (props) => (
   />
 );
 
+export const InlineCode = (props) => (
+  <code
+    className={clsx("text-gray-700", "bg-gray-300", "rounded", "px-1")}
+    {...props}></code>
+);
+
 export default {
   p: Paragraph,
   h1: Heading1,
@@ -47,4 +57,5 @@ export default {
   h6: Heading6,
   ul: List,
   a: Link,
+  inlineCode: InlineCode,
 };
