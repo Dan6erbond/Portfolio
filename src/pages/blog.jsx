@@ -21,11 +21,20 @@ const BlogPage = ({ data }) => {
           "max-w-screen-lg",
         )}>
         <h1 className={clsx("text-3xl", "mb-4")}>My Blog</h1>
-        <p className={clsx("mb-8")}>View the blog posts I've written over the years.</p>
+        <p className={clsx("mb-8")}>
+          View the blog posts I've written over the years.
+        </p>
         <div className={clsx("grid", "sm:grid-cols-2", "gap-4")}>
           {edges.map((edge) => (
             <div
-              className={clsx("p-6", "bg-navy-600", "rounded-lg", "shadow-lg")}>
+              className={clsx(
+                "p-6",
+                "bg-navy-600",
+                "rounded-lg",
+                "shadow-lg",
+                "flex",
+                "flex-col",
+              )}>
               <p
                 className={clsx(
                   "text-2xl",
@@ -40,16 +49,16 @@ const BlogPage = ({ data }) => {
               <p className={clsx("mb-8", "text-gray-400")}>
                 {edge.node.frontmatter.description}
               </p>
-              <Link
-                to={edge.node.frontmatter.slug}
-                className={clsx(
-                  "text-right",
-                  "hover:text-orange-500",
-                  "block",
-                  "transition-colors",
-                )}>
-                Read More
-              </Link>
+              <div className={clsx("flex", "flex-row-reverse", "mt-auto")}>
+                <Link
+                  to={edge.node.frontmatter.slug}
+                  className={clsx(
+                    "hover:text-orange-500",
+                    "transition-colors",
+                  )}>
+                  Read More
+                </Link>
+              </div>
             </div>
           ))}
         </div>
