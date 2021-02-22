@@ -37,6 +37,7 @@ export const Link = (props) => (
       "hover:text-gray-500",
       "transition-colors",
     )}
+    target="_blank"
     {...props}
   />
 );
