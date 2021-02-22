@@ -1,0 +1,129 @@
+---
+slug: /blog/graphql-utils
+date: 2020-02-22
+author: RaviAnand Mohabir
+authorTags: fullstack web developer / GraphQL enthusiast
+title: Leveraging the GraphQL AST to Build Efficient JOIN Queries
+description: GraphQL already comes with a lot of benefits out of the box - but by leveraging the AST we can improve performance by multiple factors and solve the N+1 problem elegantly.
+tableOfContents: true
+---
+
+The N+1 problem has never been solved in REST, the go-to method in GraphQL on the other hand has been to use dataloader, a pattern made popular by Facebook.
+
+I'm here to tell you there's no need for a fancy caching system to optimize GraphQL queries. All you need is a little understanding of SQL and the GraphQL AST, as well as a little library I built called [graphql-utils](https://github.com/Jenyus-Org/graphql-utils).
+
+# Understanding the GraphQL AST
+
+There are already a bunch of great articles out there on the GraphQL AST and how it works. To give you a rundown of how it works, key here is the last argument `info` which is passed to all your resolvers and is of the type `GraphQLResolveInfo`. It contains an abstract syntax tree of the parsed query made by your client, and can be used to introspect relations and even fields requested by them. By checking ahead of time what relations and fields need to be resolved, we can generate much more efficient SQL queries.
+
+# In Practice
+
+Now that we know how the GraphQL AST works, we can leverage the information the GraphQL server already provides us to figure out which tables we need to join at runtime.
+
+Let's first draw up our schema:
+
+```gql
+type User {
+  id: ID!
+  posts: [Post!]!
+}
+
+type Post {
+  id: ID!
+  title: String!
+  body: String
+  user: User!
+}
+
+type Query {
+  users: [User!]!
+}
+```
+
+This is a typical schema you would see in a community forum type of application, with users and their associated posts. Each post has the `title` and `body` attributes and belongs to a specific `User`.
+
+Now let's look at how the resolvers for this schema might look:
+
+```ts
+import { hasFields } from "@jenyus-org/graphql-utils";
+
+const resolvers = {
+  Query: {
+    async users(_, { db }, ___, info) {
+      let query = db.select("*").from("users");
+      const getPosts = hasFields(info, "user.posts");
+
+      if (getPosts) {
+        query = query.leftJoin("posts", "users.id", "posts.user_id");
+      }
+
+      let users = await query;
+
+      if (getPosts) {
+        users = users.reduce((users, user) => {
+          users[user.id] = users[user.id] || {
+            ...user,
+            posts: [],
+          };
+
+          users[user.id].posts.push({
+            id: user.postsId,
+            title: user.postsTitle,
+            body: user.postsBody,
+          });
+
+          return users;
+        }, {});
+        users = users.values();
+      }
+
+      return users;
+    },
+  },
+  User: {
+    async posts(user, { db }) {
+      // Posts have already been fetched thanks to our neat algorithm!
+      if (user.posts.length) {
+        return user.posts;
+      }
+      // We still need to fetch the posts:
+      return await db.select("*").from("posts").where("user_id", user.id);
+    },
+  },
+};
+```
+
+As you can see, we use the `hasFields` utility provided by `graphql-utils` to check if the `posts` relation was requested in the query. In case posts were requested, we need to `Array.prototype.reduce()` and remap the `users` in order to have a list of all the unique users with each post and the attributes correctly mapped.
+
+Admittedly, this example is a little long and puts all of our business logic in the resolvers which does not follow the single-responsibility principle (SRP). In a real-world application you would create a service or a repository, and pass on the relations you want to have fetched. Which is why `graphql-utils` provides another utility called `resolveSelections` and allows you to pass on an array of relations that you want the service to return:
+
+```ts
+import { resolveSelections } from "@jenyus-org/graphql-utils";
+
+const resolvers = {
+  Query: {
+    async users(_, { usersService }, ___, info) {
+      const relations = resolveSelections(info, [
+        {
+          field: "user",
+          selections: ["posts"],
+        },
+      ]);
+
+      return usersService.findAll({ relations });
+    },
+  },
+  User: {
+    async posts(user, { postsService }) {
+      // Posts have already been fetched thanks to our neat algorithm!
+      if (user.posts.length) {
+        return user.posts;
+      }
+      // We still need to fetch the posts:
+      return await postsService.findAll({ userId: user.id });
+    },
+  },
+};
+```
+
+# Wrapping Up
