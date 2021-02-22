@@ -21,7 +21,21 @@ export const Heading5 = (props) => <h6 {...props} />;
 
 export const Heading6 = (props) => <p {...props} />;
 
-export const List = (props) => <ul className={clsx("list-disc", "list-inside", "mb-2")} {...props} />;
+export const List = (props) => (
+  <ul className={clsx("list-disc", "list-inside", "mb-2")} {...props} />
+);
+
+export const Link = (props) => (
+  <a
+    className={clsx(
+      "underline",
+      "text-navy-200",
+      "hover:text-gray-500",
+      "transition-colors",
+    )}
+    {...props}
+  />
+);
 
 export default {
   p: Paragraph,
@@ -32,4 +46,5 @@ export default {
   h5: Heading5,
   h6: Heading6,
   ul: List,
+  a: Link,
 };
