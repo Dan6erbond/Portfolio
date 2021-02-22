@@ -41,12 +41,13 @@ const IndicatorNav = ({
   items,
   activeItemId,
   className,
-  breakpoint = "md",
+  breakpoint,
+  onClick,
 }) => (
   <div
     className={clsx(
-      "hidden",
-      `${breakpoint}:flex`,
+      !breakpoint && "flex",
+      !!breakpoint && ["hidden", `${breakpoint}:flex`],
       "pr-12",
       "justify-center",
       "flex-col",
@@ -54,7 +55,15 @@ const IndicatorNav = ({
     )}>
     <AnimateSharedLayout>
       {items.map(({ text, id }) => (
-        <div key={id} className={clsx("mb-12", "flex", "items-center")}>
+        <div
+          key={id}
+          className={clsx(
+            "mb-12",
+            "flex",
+            "items-center",
+            !!onClick && "cursor-pointer",
+          )}
+          onClick={() => onClick(id)}>
           <Indicator id={id} activeId={activeItemId} />
           {text}
         </div>
