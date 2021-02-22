@@ -10,7 +10,7 @@ tableOfContents: true
 
 The N+1 problem has never been solved in REST, the go-to method in GraphQL on the other hand has been to use dataloader, a pattern made popular by Facebook.
 
-I'm here to tell you there's no need for a fancy caching system to optimize GraphQL queries. All you need is a little understanding of SQL and the GraphQL AST, as well as a little library I built called [graphql-utils](https://github.com/Jenyus-Org/graphql-utils).
+I'm here to tell you there's no need for a fancy caching system to optimize GraphQL queries. All you need is a little understanding of SQL and the GraphQL AST, as well as a little library I built called [`@jenyus-org/graphql-utils`](https://github.com/Jenyus-Org/graphql-utils).
 
 # Understanding the GraphQL AST
 
@@ -41,6 +41,18 @@ type Query {
 ```
 
 This is a typical schema you would see in a community forum type of application, with users and their associated posts. Each post has the `title` and `body` attributes and belongs to a specific `User`.
+
+I'm using the `@jenyus-org/graphql-utils` package to parse the AST and check which fields have been requested, you can install it using NPM:
+
+```shell
+npm i @jenyus-org/graphql-utils
+```
+
+Or Yarn:
+
+```shell
+yarn add @jenyus-org/graphql-utils
+```
 
 Now let's look at how the resolvers for this schema might look:
 
@@ -127,3 +139,7 @@ const resolvers = {
 ```
 
 # Wrapping Up
+
+Using the GraphQL AST in combination with a robust package like [`@jenyus-org/graphql-utils`](https://github.com/Jenyus-Org/graphql-utils) we can forego dataloaders and complex mapping of IDs and simply leverage the performance of SQL JOINs and potentially even detailed SELECTs. In combination with query builders and ORMs like KnexJS or TypeORM this becomes even more powerful as they make it much easier to build dynamic queries based on certain arguments.
+
+On top of the base package I also built the `nestjs-graphql-utils`, found in the same repository, which wraps all of these utilities in NestJS `CustomParamDecorator`s. If you use NestJS this is the package for you.
