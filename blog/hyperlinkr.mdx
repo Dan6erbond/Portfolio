@@ -1,0 +1,20 @@
+---
+slug: /blog/hyperlinkr
+date: 2020-02-22
+author: RaviAnand Mohabir
+authorTags: fullstack web developer
+title: A PWA for all your Hyperlinking Needs
+description: Hyperlinkr is a PWA built with VueJS and Netlify functions to generate hyperlinks in HTML and markdown format using a site's metadata.
+---
+
+Hyperlinkr is a PWA I built using VueJS to solve a common problem I often had when sharing content on Reddit or GitHub issues, and even in web development. As oftentimes I simply need the hyperlink to display the website's original title, especially on mobile devices it can be quite painful to put together such a hyperlink on the go.
+
+<div style="width: 270px;margin: 0 auto;">
+
+  ![Hyperlinkr](../images/hyperlinkr-pixel4.png)
+
+</div>
+
+Hyperlink uses PWA's `share_target` and clipboard API to make it super easy to paste and copy your links. It outputs in two formats; HTML and markdown and uses a Netlify function to scrape a website's metadata in order to retrieve the title.
+
+You can check out Hyperlinkr [here](http://hyperlinkr.netlify.app/) and install it on your device, it's as simple as that!
