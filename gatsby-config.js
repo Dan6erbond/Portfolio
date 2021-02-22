@@ -43,6 +43,14 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
+        name: "images",
+        path: "./images/",
+      },
+      __key: "images",
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
         name: "pages",
         path: "./blog/",
       },
@@ -58,6 +66,15 @@ module.exports = {
             options: {
               terminal: "carbon",
               theme: "night-owl",
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+              showCaptions: ["alt", "title"],
+              // markdownCaptions: true,
+              wrapperStyle: `text-align: center;margin: 1rem 0;`,
             },
           },
         ],
