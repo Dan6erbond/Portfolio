@@ -74,8 +74,15 @@ const Template = ({ data }) => {
             text: heading.value,
           }))}
           activeItemId={activeItemdId}
-          className={clsx("fixed", "right-0", "top-0", "bottom-0", "z-50")}
-          breakpoint="2xl"
+          className={clsx(
+            "hidden",
+            "fixed",
+            "right-0",
+            "top-0",
+            "bottom-0",
+            "z-50",
+            "2xl:flex",
+          )}
           onClick={(id) => (location.hash = "#" + id)}
         />
       )}

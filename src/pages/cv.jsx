@@ -381,7 +381,8 @@ const ResumePage = () => {
           { text: "Passions", id: "passions" },
         ]}
         className={clsx(
-          "fixed",
+          "hidden",
+          "lg:flex",
           "pointer-events-none",
           "right-0",
           "top-0",
@@ -389,7 +390,6 @@ const ResumePage = () => {
           "z-50",
         )}
         activeItemId={visibleSection}
-        breakpoint="lg"
       />
     </Layout>
   );

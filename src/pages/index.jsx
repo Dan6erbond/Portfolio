@@ -332,9 +332,10 @@ const IndexPage = () => {
           "top-0",
           "bottom-0",
           "z-50",
+          "hidden",
+          "lg:flex",
         )}
         activeItemId={visibleSection}
-        breakpoint="lg"
       />
     </Layout>
   );
