@@ -33,6 +33,10 @@ const projects = [
       "An open-source NPM package I designed to aid in creating high-performance GraphQL APIs.",
     links: [
       {
+        title: "Read More",
+        to: "/blog/graphql-utils",
+      },
+      {
         title: "GitHub",
         href: "https://github.com/Jenyus-Org/graphql-utils",
       },
@@ -44,16 +48,16 @@ const projects = [
       "A website built with React to track and display GTAOnline content updates.",
     links: [
       {
+        title: "Read More",
+        href: "https://patreon.com/posts/45601369",
+      },
+      {
         title: "Site",
         href: "http://gtaonline-cf0ea.web.app/",
       },
       {
         title: "GitHub",
         href: "https://github.com/GTAOnline-Mods/GTA-Weekly-Updates",
-      },
-      {
-        title: "Read More",
-        href: "patreon.com/posts/45601369",
       },
     ],
   },
