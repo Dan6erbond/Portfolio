@@ -5,14 +5,18 @@ import * as React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { FiShare2 } from "react-icons/fi";
+import IndicatorNav from "../components/indicator-nav";
 
 const Template = ({ data }) => {
   const {
-    mdx: { frontmatter, body },
+    mdx: { frontmatter, body, headings },
     site: { siteMetadata },
   } = data;
 
   const [canShare, setCanShare] = React.useState(false);
+  const [activeItemdId, setActiveItemId] = React.useState(
+    headings.length && headings[0].value,
+  );
 
   const share = React.useCallback(() => {
     navigator.share({
@@ -25,11 +29,56 @@ const Template = ({ data }) => {
     if (navigator.share) {
       setCanShare(true);
     }
+
+    let handler;
+    if (headings.length) {
+      handler = () => {
+        for (const heading of headings) {
+          const el = document.getElementById(heading.value);
+          const rect = el.getBoundingClientRect();
+          const visible =
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <=
+              (window.innerHeight ||
+                document.documentElement
+                  .clientHeight) /* or $(window).height() */ &&
+            rect.right <=
+              (window.innerWidth ||
+                document.documentElement
+                  .clientWidth); /* or $(window).width() */
+          if (visible) {
+            setActiveItemId(heading.value);
+            break;
+          }
+        }
+      };
+
+      window.addEventListener("scroll", handler);
+    }
+
+    return () => {
+      if (handler) {
+        window.removeEventListener("scroll", handler);
+      }
+    };
   }, []);
 
   return (
     <Layout>
       <SEO title={frontmatter.title} description={frontmatter.description} />
+      {frontmatter.tableOfContents && (
+        <IndicatorNav
+          items={headings.map((heading) => ({
+            id: heading.value,
+            text: heading.value,
+          }))}
+          activeItemId={activeItemdId}
+          className={clsx("fixed", "right-0", "top-0", "bottom-0", "z-50")}
+          breakpoint="2xl"
+          onClick={(id) => (location.hash = "#" + id)}
+        />
+      )}
       <div
         className={clsx(
           "px-4",
@@ -52,15 +101,28 @@ const Template = ({ data }) => {
             "md:flex-row",
             "justify-between",
           )}>
-          <div className={clsx("mt-8")}>
-            <p className={clsx("mb-2", "font-bold")}>{frontmatter.author}</p>
-            <p className={clsx("mb-4")}>{frontmatter.authorTags}</p>
-            {canShare && (
-              <button
-                className={clsx("hover:text-orange-500", "transition-colors")}
-                onClick={share}>
-                <FiShare2 />
-              </button>
+          <div className={clsx("flex-grow")}>
+            <div className={clsx("p-8")}>
+              <p className={clsx("mb-2", "font-bold")}>{frontmatter.author}</p>
+              <p className={clsx("mb-4")}>{frontmatter.authorTags}</p>
+              {canShare && (
+                <button
+                  className={clsx("hover:text-orange-500", "transition-colors")}
+                  onClick={share}>
+                  <FiShare2 />
+                </button>
+              )}
+            </div>
+            {frontmatter.tableOfContents && (
+              <IndicatorNav
+                items={headings.map((heading) => ({
+                  id: heading.value,
+                  text: heading.value,
+                }))}
+                activeItemId={activeItemdId}
+                className={clsx("2xl:hidden")}
+                onClick={(id) => (location.hash = "#" + id)}
+              />
             )}
           </div>
           <div className={clsx("max-w-screen-md")}>
@@ -85,6 +147,11 @@ export const pageQuery = graphql`
         authorTags
         date(formatString: "DD MMMM, YYYY")
         description
+        tableOfContents
+      }
+      headings(depth: h1) {
+        depth
+        value
       }
     }
     site {
