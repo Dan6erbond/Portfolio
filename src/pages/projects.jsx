@@ -6,24 +6,17 @@ import SEO from "../components/seo";
 
 const projects = [
   {
-    title: "Who Wants To Be A Millionaire",
+    title: "Hyperlinkr",
     description:
-      "A web-based version of the Who Wants To Be A Millionaire game built with ASP.NET Core and React.",
-    links: [
-      {
-        title: "GitHub",
-        href: "https://github.com/Dan6erbond/WhoWantsToBeAMillionaire",
-      },
-    ],
-  },
-  {
-    title: "Usage of IT Tools and Software in Corporate Workflows",
-    description:
-      "My dissertation on automation and the usage of IT tools in corporate workflows.",
+      "A Vue based PWA to convert links into either markdown or HTML hyperlinks using site metadata.",
     links: [
       {
         title: "Read More",
-        to: "/blog/idpa",
+        to: "/blog/hyperlinkr",
+      },
+      {
+        title: "Site",
+        href: "http://hyperlinkr.netlify.app/",
       },
     ],
   },
@@ -43,6 +36,17 @@ const projects = [
     ],
   },
   {
+    title: "Usage of IT Tools and Software in Corporate Workflows",
+    description:
+      "My dissertation on automation and the usage of IT tools in corporate workflows.",
+    links: [
+      {
+        title: "Read More",
+        to: "/blog/idpa",
+      },
+    ],
+  },
+  {
     title: "GTAOnline",
     description:
       "A website built with React to track and display GTAOnline content updates.",
@@ -58,6 +62,17 @@ const projects = [
       {
         title: "GitHub",
         href: "https://github.com/GTAOnline-Mods/GTA-Weekly-Updates",
+      },
+    ],
+  },
+  {
+    title: "Who Wants To Be A Millionaire",
+    description:
+      "A web-based version of the Who Wants To Be A Millionaire game built with ASP.NET Core and React.",
+    links: [
+      {
+        title: "GitHub",
+        href: "https://github.com/Dan6erbond/WhoWantsToBeAMillionaire",
       },
     ],
   },
