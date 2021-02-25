@@ -9,7 +9,7 @@ module.exports = {
     description:
       "Full-stack engineer working on the Jenyus IT start-up and Recog forum.",
     author: "RaviAnand Mohabir",
-    url: "https://ravianand.web.app",
+    siteUrl: "https://ravianand.web.app",
     image: "/images/logo_orange.png",
     twitterUsername: "@Dan6erbond",
   },
@@ -115,5 +115,6 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-sitemap",
   ],
 };

@@ -15,7 +15,7 @@ function SEO({ description, lang, keywords, title, children, image, article }) {
             title
             titleTemplate
             description
-            url
+            url: siteUrl
             image
             author
             twitterUsername
