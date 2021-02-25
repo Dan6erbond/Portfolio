@@ -82,6 +82,7 @@ const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
               <Img
                 className={clsx("w-full", "shadow")}
                 fluid={profileImg?.childImageSharp.fluid}
+                alt="RaviAnand Mohabir"
               />
             </motion.div>
             <div

@@ -146,6 +146,7 @@ const ResumePage = () => {
               <Img
                 className={clsx("w-full", "shadow")}
                 fluid={profileImg?.childImageSharp.fluid}
+                alt="RaviAnand Mohabir"
               />
             </div>
           </div>

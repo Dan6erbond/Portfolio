@@ -62,7 +62,11 @@ const Technology = ({
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ ease: "easeInOut", duration: 1 }}>
-          <Img className={clsx("shadow")} fixed={logo?.childImageSharp.fixed} />
+          <Img
+            className={clsx("shadow")}
+            fixed={logo?.childImageSharp.fixed}
+            alt={title}
+          />
         </motion.div>
       )}
       <motion.div
@@ -140,7 +144,11 @@ const Technology = ({
           }}
           className={clsx("p-8", "w-full", "md:w-1/3", "text-center")}
           transition={{ ease: "easeInOut", duration: 1 }}>
-          <Img className={clsx("shadow")} fixed={logo?.childImageSharp.fixed} />
+          <Img
+            className={clsx("shadow")}
+            fixed={logo?.childImageSharp.fixed}
+            alt={title}
+          />
         </motion.div>
       )}
     </motion.div>
