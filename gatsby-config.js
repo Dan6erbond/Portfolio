@@ -5,9 +5,13 @@ const { graphQLQuery, variables } = require("./github-api");
 module.exports = {
   siteMetadata: {
     title: "RaviAnand Mohabir",
+    titleTemplate: "%s | RaviAnand Mohabir",
     description:
       "Full-stack engineer working on the Jenyus IT start-up and Recog forum.",
     author: "RaviAnand Mohabir",
+    siteUrl: "https://ravianand.web.app",
+    image: "/images/logo_orange.png",
+    twitterUsername: "@Dan6erbond",
   },
   plugins: [
     "gatsby-plugin-postcss",
@@ -111,5 +115,6 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-sitemap",
   ],
 };

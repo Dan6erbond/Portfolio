@@ -11,7 +11,11 @@ const tagwords = ["Creative", "Efficient", "Driven"];
 
 const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
   return (
-    <div className={clsx("flex", "items-center", "min-h-screen")} ref={ref}>
+    <article
+      itemScope
+      itemType="http://schema.org/Author"
+      className={clsx("flex", "items-center", "min-h-screen")}
+      ref={ref}>
       <div className={clsx("relative", "w-full")}>
         <div
           className={clsx(
@@ -24,6 +28,8 @@ const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
           )}>
           <div className={clsx("z-10", "mb-8", "md:mb-4")}>
             <h1
+              itemProp="name"
+              id="RaviAnand Mohabir"
               className={clsx(
                 "text-4xl",
                 "md:text-6xl",
@@ -82,6 +88,7 @@ const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
               <Img
                 className={clsx("w-full", "shadow")}
                 fluid={profileImg?.childImageSharp.fluid}
+                alt="RaviAnand Mohabir"
               />
             </motion.div>
             <div
@@ -157,7 +164,7 @@ const Jumbotron = React.forwardRef(({ profileImg }, ref) => {
           </div>
         </div>
       </div>
-    </div>
+    </article>
   );
 });
 

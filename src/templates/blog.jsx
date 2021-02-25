@@ -66,7 +66,11 @@ const Template = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={frontmatter.description} />
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.description}
+        article
+      />
       {frontmatter.tableOfContents && (
         <IndicatorNav
           items={headings.map((heading) => ({
@@ -110,7 +114,12 @@ const Template = ({ data }) => {
           )}>
           <div className={clsx("flex-grow")}>
             <div className={clsx("p-8")}>
-              <p className={clsx("mb-2", "font-bold")}>{frontmatter.author}</p>
+              <p
+                className={clsx("mb-2", "font-bold")}
+                itemProp="author"
+                name={frontmatter.author}>
+                {frontmatter.author}
+              </p>
               <p className={clsx("mb-4")}>{frontmatter.authorTags}</p>
               {canShare && (
                 <button
@@ -132,9 +141,13 @@ const Template = ({ data }) => {
               />
             )}
           </div>
-          <div className={clsx("max-w-screen-md")}>
+          <article
+            itemScope
+            itemType="http://schema.org/Article"
+            className={clsx("max-w-screen-md")}>
+            <meta itemProp="datePublished" content={frontmatter.date} />
             <MDXRenderer>{body}</MDXRenderer>
-          </div>
+          </article>
         </div>
       </div>
     </Layout>
