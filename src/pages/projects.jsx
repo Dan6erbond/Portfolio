@@ -96,7 +96,7 @@ const ProjectsPage = () => {
   return (
     <Layout>
       <SEO
-        title="Home"
+        title="Projects"
         description="Take a look at some of the projects I've worked on over the years."
       />
       <div
