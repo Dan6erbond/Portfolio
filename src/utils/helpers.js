@@ -13,7 +13,7 @@ export const socials = {
   },
   reddit: {
     name: "Reddit",
-    url: "https://reddit.com/r/Dan6erbond",
+    url: "https://reddit.com/u/Dan6erbond",
     icon: FaReddit,
   },
 };
