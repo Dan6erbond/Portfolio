@@ -7,7 +7,7 @@ import Helmet from "react-helmet";
 function SEO({ description, lang, keywords, title, children, image, article }) {
   const { pathname } = useLocation();
 
-  const { site, logo } = useStaticQuery(
+  const { site } = useStaticQuery(
     graphql`
       query SEO {
         site {
