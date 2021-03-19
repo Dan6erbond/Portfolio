@@ -125,5 +125,11 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: "https://ravianand.web.app",
+      },
+    },
   ],
 };
