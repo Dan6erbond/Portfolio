@@ -11,15 +11,15 @@ import Fab from "../fab";
 const Layout = ({ children, className }) => {
   const paths = [
     {
-      path: "/projects",
+      path: "/projects/",
       title: "Projects",
     },
     {
-      path: "/blog",
+      path: "/blog/",
       title: "Blog",
     },
     {
-      path: "/cv",
+      path: "/cv/",
       title: "Resume",
     },
   ];

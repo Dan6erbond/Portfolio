@@ -51,7 +51,7 @@ const BlogPage = ({ data }) => {
               </p>
               <div className={clsx("flex", "flex-row-reverse", "mt-auto")}>
                 <Link
-                  to={edge.node.frontmatter.slug}
+                  to={edge.node.frontmatter.slug + "/"}
                   className={clsx(
                     "hover:text-orange-500",
                     "transition-colors",

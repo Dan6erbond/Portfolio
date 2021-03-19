@@ -12,7 +12,7 @@ const projects = [
     links: [
       {
         title: "Read More",
-        to: "/blog/hyperlinkr",
+        to: "/blog/hyperlinkr/",
       },
       {
         title: "Site",
@@ -27,7 +27,7 @@ const projects = [
     links: [
       {
         title: "Read More",
-        to: "/blog/graphql-utils",
+        to: "/blog/graphql-utils/",
       },
       {
         title: "GitHub",
@@ -42,7 +42,7 @@ const projects = [
     links: [
       {
         title: "Read More",
-        to: "/blog/idpa",
+        to: "/blog/idpa/",
       },
     ],
   },
@@ -53,7 +53,7 @@ const projects = [
     links: [
       {
         title: "Read More",
-        href: "https://patreon.com/posts/45601369",
+        href: "https://patreon.com/posts/45601369/",
       },
       {
         title: "Site",
@@ -61,7 +61,7 @@ const projects = [
       },
       {
         title: "GitHub",
-        href: "https://github.com/GTAOnline-Mods/GTA-Weekly-Updates",
+        href: "https://github.com/GTAOnline-Mods/GTA-Weekly-Updates/",
       },
     ],
   },
@@ -72,7 +72,7 @@ const projects = [
     links: [
       {
         title: "GitHub",
-        href: "https://github.com/Dan6erbond/WhoWantsToBeAMillionaire",
+        href: "https://github.com/Dan6erbond/WhoWantsToBeAMillionaire/",
       },
     ],
   },
